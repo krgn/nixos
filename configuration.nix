@@ -76,6 +76,7 @@
 
   services = {
     #printing.enable = true;
+    bitlbee.enable = true;
 
     gnome3.gnome-keyring.enable = true;
     nixosManual.showManual = true;
