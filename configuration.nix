@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
-    ./software-configuration.nix
+    ./hardware.nix
+    ./software.nix
   ];
 
   time.timeZone = "Europe/Berlin";
@@ -21,14 +21,9 @@
 
   environment = {
     shellInit = ''
-	# Set GTK_PATH so that GTK+ can find the Xfce theme engine.
-        export GTK_PATH=${pkgs.xfce.gtk_xfce_engine}/lib/gtk-2.0
-	# Set GTK_DATA_PREFIX so that GTK+ can find the Xfce themes.
-        export GTK_DATA_PREFIX=${config.system.path}
-	# Set GIO_EXTRA_MODULES so that gvfs works.
-        export GIO_EXTRA_MODULES=${pkgs.xfce.gvfs}/lib/gio/modules
-	# Launch xfce settings daemon.
-        xfsettingsd &
+    export GTK_PATH=${pkgs.xfce.gtk_xfce_engine}/lib/gtk-2.0
+    export GTK_DATA_PREFIX=${config.system.path}
+    export GIO_EXTRA_MODULES=${pkgs.xfce.gvfs}/lib/gio/modules
     '';
     pathsToLink =
       [ "/share/xfce4" "/share/themes" "/share/mime" "/share/desktop-directories"];
@@ -98,11 +93,41 @@
       autorun = true;
       layout = "us";
       xkbOptions = "ctrl:swapcaps,compose:ralt";
+
       desktopManager.xterm.enable = false;
-      windowManager.xmonad = {
-        enable = true;
-        enableContribAndExtras = true;
+      desktopManager.default      = "none";
+
+      displayManager = {
+        desktopManagerHandlesLidAndPower = false;
+        sessionCommands = ''
+          #${pkgs.xlibs.xset}/bin/xset r rate 200 60
+
+          source $HOME/.profile
+
+          eval $(gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+          
+          export GNOME_KEYRING_CONTROL 
+          export GNOME_KEYRING_PID
+          export SSH_AUTH_SOCK
+          export GPG_AGENT_INFO
+          export GTK_IM_MODULE=xim
+
+          exec feh --bg-center $HOME/pics/comet.jpg &
+          exec xsetroot -solid black &
+          #exec xscreensaver &
+          exec nm-applet &
+          exec xfsettingsd &
+        '';
       };
+
+      windowManager = {
+          default = "xmonad";
+          xmonad = {
+            enable = true;
+            enableContribAndExtras = true;
+        };
+      };
+
       synaptics = {
         enable = true;
         vertEdgeScroll = false;
@@ -110,12 +135,9 @@
         twoFingerScroll = true;
         additionalOptions = ''
           Option "VertScrollDelta" "-18"
-          Option "HorizScrollDelta" "-18"
+          Option "HorizScrollDelta" "18"
         '';
       };
-      displayManager.auto.enable = true;
-      displayManager.auto.user = "k";
-      displayManager.desktopManagerHandlesLidAndPower = false;
     };    
   };
 
