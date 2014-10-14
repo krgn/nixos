@@ -21,11 +21,22 @@
 
   environment = {
     shellInit = ''
-    export GTK_PATH=${pkgs.xfce.gtk_xfce_engine}/lib/gtk-2.0
-    export GTK_DATA_PREFIX=${config.system.path}
-    export GIO_EXTRA_MODULES=${pkgs.xfce.gvfs}/lib/gio/modules
-    '';
-    pathsToLink =
+      export GTK_PATH=${pkgs.xfce.gtk_xfce_engine}/lib/gtk-2.0
+      export GTK_DATA_PREFIX=${config.system.path}
+      export GIO_EXTRA_MODULES=${pkgs.xfce.gvfs}/lib/gio/modules
+      case "$TERM" in
+         "dumb")
+             PS1="> "
+             ;;
+         xterm*|rxvt*|eterm*|screen*)
+             echo "Not that dumb, your terminal."
+             ;;
+         *)
+             PS1="> "
+             ;;
+      esac
+      '';
+      pathsToLink =
       [ "/share/xfce4" "/share/themes" "/share/mime" "/share/desktop-directories"];
   };
 
@@ -98,10 +109,10 @@
       desktopManager.default      = "none";
 
       displayManager = {
+        auto.enable = true;    
+        auto.user = "k";
         desktopManagerHandlesLidAndPower = false;
         sessionCommands = ''
-          #${pkgs.xlibs.xset}/bin/xset r rate 200 60
-
           source $HOME/.profile
 
           eval $(gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
@@ -139,6 +150,23 @@
         '';
       };
     };    
+  };
+
+  systemd.services.emacs = {
+    description = "Emacs: the extensible, self-documenting text editor";
+    wantedBy = [ "default.target" ]; 
+    serviceConfig = {
+      User = "k";
+      Type = "forking";
+      Environment = [
+        "DISPLAY=:0" 
+        "HOME=/home/k" 
+        "NOTMUCH_CONFIG=/home/k/.config/notmuch/config"
+      ];
+      ExecStart = "/run/current-system/sw/bin/emacs --daemon";
+      ExecStop = "/run/current-system/sw/bin/emacsclient --eval '(kill-emacs)'";
+      Restart = "always";
+    };
   };
 
   systemd.services.i3lock = {

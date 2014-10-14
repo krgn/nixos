@@ -34,6 +34,7 @@
     hicolor_icon_theme
     shared_mime_info
     skype
+    libnotify
 
     xsel
     xclip
@@ -62,8 +63,8 @@
     python27Packages.afew
     python27Packages.keyring
 
+    xmobar
     ghc.ghc783
-    haskellPackages.xmobar
     haskellPackages.xmonad
     haskellPackages.xmonadContrib
     haskellPackages.xmonadExtras
