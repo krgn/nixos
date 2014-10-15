@@ -35,9 +35,19 @@
     shared_mime_info
     skype
     libnotify
+    libreoffice
+    docker
+
+    # msf
+    # arp-scan 
+    # wireshark
+    # kismet
+    # tcpdump
+    # ettercap
 
     xsel
     xclip
+    xlibs.xkill
     xfce.terminal
     xfce.ristretto
     xfce.gtk_xfce_engine
@@ -63,8 +73,8 @@
     python27Packages.afew
     python27Packages.keyring
 
-    xmobar
     ghc.ghc783
+    haskellPackages.xmobar
     haskellPackages.xmonad
     haskellPackages.xmonadContrib
     haskellPackages.xmonadExtras

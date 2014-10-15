@@ -125,7 +125,6 @@
 
           exec feh --bg-center $HOME/pics/comet.jpg &
           exec xsetroot -solid black &
-          #exec xscreensaver &
           exec nm-applet &
           exec xfsettingsd &
         '';
@@ -150,23 +149,6 @@
         '';
       };
     };    
-  };
-
-  systemd.services.emacs = {
-    description = "Emacs: the extensible, self-documenting text editor";
-    wantedBy = [ "default.target" ]; 
-    serviceConfig = {
-      User = "k";
-      Type = "forking";
-      Environment = [
-        "DISPLAY=:0" 
-        "HOME=/home/k" 
-        "NOTMUCH_CONFIG=/home/k/.config/notmuch/config"
-      ];
-      ExecStart = "/run/current-system/sw/bin/emacs --daemon";
-      ExecStop = "/run/current-system/sw/bin/emacsclient --eval '(kill-emacs)'";
-      Restart = "always";
-    };
   };
 
   systemd.services.i3lock = {
