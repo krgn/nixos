@@ -62,7 +62,12 @@
     defaultLocale = "en_US.UTF-8";
   };
 
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio = {
+    enable = true;
+    package = pkgs.pulseaudio.override {
+      jackaudioSupport = true;
+    };
+  };
 
   powerManagement = {
     enable = true;

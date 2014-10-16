@@ -7,6 +7,7 @@
     vim emacs
     htop iotop powertop
     firefox firefoxWrapper
+    conkeror conkerorWrapper
     dmenu tmux
     gimp inkscape
     git subversion
@@ -37,13 +38,24 @@
     libnotify
     libreoffice
     docker
+    couchdb
+    postgresql94
+    cowsay
+
+    qjackctl
+    jack2
+    supercollider
+    supercollider_scel
+    pavucontrol
+    ladspaPlugins
+    calf
 
     # msf
-    # arp-scan 
-    # wireshark
-    # kismet
-    # tcpdump
-    # ettercap
+    arp-scan 
+    wireshark
+    kismet
+    tcpdump
+    ettercap
 
     xsel
     xclip
