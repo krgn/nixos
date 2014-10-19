@@ -11,10 +11,13 @@
   nixpkgs = { 
     config.allowUnfree = true;
     config.firefox.enableAdobeFlash = true;
-    config.chromium.enableAdobeFlash = true;
+    config.firefox.enableGoogleTalkPlugin = true;
+    config.chromium.enablePepperFlash = true;
+    config.chromium.enablePepperPDF = true;
   };
 
   nix = {
+    package = pkgs.nixUnstable;
     gc.automatic = true;
     useChroot = true;
   };
@@ -44,12 +47,10 @@
     loader.grub.enable = true;
     loader.grub.version = 2;
     loader.grub.device = "/dev/sda";
-    initrd.luks.devices = [ { name = "luksroot"; device = "/dev/sda3"; preLVM = true; } ];
     blacklistedKernelModules = [ "snd_pcsp" "pcspkr" ];
   };
 
   networking = { 
-    hostName = "nanook";
     networkmanager.enable = true;
     networkmanager.appendNameservers = [
       "8.8.8.8" "8.8.4.4" 
@@ -86,7 +87,7 @@
   };
 
   services = {
-    #printing.enable = true;
+    printing.enable = true;
     bitlbee.enable = true;
 
     gnome3.gnome-keyring.enable = true;
@@ -108,7 +109,6 @@
       enable = true;
       autorun = true;
       layout = "us";
-      xkbOptions = "ctrl:swapcaps,compose:ralt";
 
       desktopManager.xterm.enable = false;
       desktopManager.default      = "none";
@@ -193,47 +193,12 @@
     fonts = with pkgs; [
       corefonts
       inconsolata
+      anonymousPro
       ubuntu_font_family
       source-code-pro  
       cantarell_fonts
       dejavu_fonts
       dosemu_fonts 
-      xlibs.fontadobe100dpi
-      xlibs.fontadobe75dpi
-      xlibs.fontadobeutopia100dpi
-      xlibs.fontadobeutopia75dpi
-      xlibs.fontadobeutopiatype1
-      xlibs.fontalias
-      xlibs.fontarabicmisc
-      xlibs.fontbh100dpi
-      xlibs.fontbh75dpi
-      xlibs.fontbhlucidatypewriter100dpi
-      xlibs.fontbhlucidatypewriter75dpi
-      xlibs.fontbhttf
-      xlibs.fontbhtype1
-      xlibs.fontbitstream100dpi
-      xlibs.fontbitstream75dpi
-      xlibs.fontbitstreamtype1
-      xlibs.fontcronyxcyrillic
-      xlibs.fontcursormisc
-      xlibs.fontdaewoomisc
-      xlibs.fontdecmisc
-      xlibs.fontibmtype1
-      xlibs.fontisasmisc
-      xlibs.fontjismisc
-      xlibs.fontmicromisc
-      xlibs.fontmisccyrillic
-      xlibs.fontmiscethiopic
-      xlibs.fontmiscmeltho
-      xlibs.fontmiscmisc
-      xlibs.fontmuttmisc
-      xlibs.fontschumachermisc
-      xlibs.fontscreencyrillic
-      xlibs.fontsonymisc
-      xlibs.fontsunmisc
-      xlibs.fontutil
-      xlibs.fontwinitzkicyrillic
-      xlibs.fontxfree86type1
       ttf_bitstream_vera
       freefont_ttf
       ipafont

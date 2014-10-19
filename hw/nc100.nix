@@ -9,6 +9,9 @@
     ];
 
   boot.initrd.availableKernelModules = [ "uhci_hcd" "ehci_pci" "ahci" "usb_storage" ];
+  boot.initrd.luks.devices = [ 
+    { name = "pvol1"; device = "/dev/sda3"; preLVM = true; }  
+  ];
   boot.kernelModules = [ "aes" "sha1" "sha256" "xts" ];
   boot.extraModulePackages = [ ];
 
@@ -32,4 +35,7 @@
     ];
 
   nix.maxJobs = 2;
+
+  services.xserver.xkbOptions = "ctrl:swapcaps,compose:ralt";
+  networking.hostName = "nanook";
 }

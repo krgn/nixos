@@ -2,6 +2,6 @@
 
 {
   imports = [
-    ./hw/nc100.nix
+    ./hw/asus.nix
   ];
 }

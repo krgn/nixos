@@ -2,8 +2,8 @@
 
 {
   environment.systemPackages = with pkgs; [
-    firefox firefoxWrapper
-    conkeror conkerorWrapper
+    firefoxWrapper
+    conkerorWrapper
     dmenu 
     gimp inkscape
     chromium 
@@ -39,6 +39,7 @@
     xfce.xfce4settings
     xfce.xfce4notifyd
     xfce.xfconf
+    haskellPackages.xmobar
 
     gnome3.gnome_keyring
     gnome3.seahorse
