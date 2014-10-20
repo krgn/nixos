@@ -33,7 +33,6 @@
              PS1="> "
              ;;
          xterm*|rxvt*|eterm*|screen*)
-             echo "Not that dumb, your terminal."
              ;;
          *)
              PS1="> "
@@ -47,7 +46,6 @@
              PS1="> "
              ;;
          xterm*|rxvt*|eterm*|screen*)
-             echo "Not that dumb, your terminal."
              ;;
          *)
              PS1="> "
@@ -66,7 +64,6 @@
              PS1="> "
              ;;
          xterm*|rxvt*|eterm*|screen*)
-             echo "Not that dumb, your terminal."
              ;;
          *)
              PS1="> "

@@ -29,6 +29,7 @@
     unrar    
     unzip
 
+    xlibs.xev
     xsel
     xclip
     xlibs.xkill
