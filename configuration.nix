@@ -6,14 +6,17 @@
     ./software.nix
   ];
 
+
   time.timeZone = "Europe/Berlin";
 
   nixpkgs = { 
-    config.allowUnfree = true;
-    config.firefox.enableAdobeFlash = true;
-    config.firefox.enableGoogleTalkPlugin = true;
-    config.chromium.enablePepperFlash = true;
-    config.chromium.enablePepperPDF = true;
+    config = {
+      allowUnfree = true;
+      firefox.enableAdobeFlash = true;
+      firefox.enableGoogleTalkPlugin = true;
+      chromium.enablePepperFlash = true;
+      chromium.enablePepperPDF = true;
+    };
   };
 
   nix = {
@@ -24,6 +27,7 @@
 
   environment = {
     shellInit = ''
+      export LD_LIBRARY_PATH=/lib64:$LD_LIBRARY_PATH
       export GTK_PATH=${pkgs.xfce.gtk_xfce_engine}/lib/gtk-2.0
       export GTK_DATA_PREFIX=${config.system.path}
       export GIO_EXTRA_MODULES=${pkgs.xfce.gvfs}/lib/gio/modules
@@ -142,17 +146,6 @@
             enableContribAndExtras = true;
         };
       };
-
-      synaptics = {
-        enable = true;
-        vertEdgeScroll = false;
-        tapButtons = false;
-        twoFingerScroll = true;
-        additionalOptions = ''
-          Option "VertScrollDelta" "-18"
-          Option "HorizScrollDelta" "18"
-        '';
-      };
     };    
   };
 
@@ -210,8 +203,6 @@
       ubuntu_font_family
       vistafonts
       ucsFonts
-      xfontsel
-      xlsfonts
     ];
   };
 }

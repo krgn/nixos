@@ -5,7 +5,7 @@
     wget curl
     vcsh mr
     vim emacs
-    htop iotop powertop
+    atop htop iotop powertop
     tmux
     git subversion
     fish
@@ -16,6 +16,16 @@
     couchdb
     postgresql94
 
+    tree
+    file
+    clang
+    llvm
+    gcc
+    cmake
+    gnumake
+    autoconf
+    automake
+  
     # msf
     arp-scan 
     wireshark

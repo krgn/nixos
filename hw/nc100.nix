@@ -36,6 +36,22 @@
 
   nix.maxJobs = 2;
 
-  services.xserver.xkbOptions = "ctrl:swapcaps,compose:ralt";
   networking.hostName = "nanook";
+
+  services = {
+    xserver = {
+      xkbOptions = "ctrl:swapcaps,compose:ralt";
+
+      synaptics = {
+        enable = true;
+        vertEdgeScroll = false;
+        tapButtons = false;
+        twoFingerScroll = true;
+        additionalOptions = ''
+          Option "VertScrollDelta" "-18"
+          Option "HorizScrollDelta" "18"
+        '';
+      };
+    };
+  };
 }

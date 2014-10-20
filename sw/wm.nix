@@ -23,11 +23,15 @@
     skype
     libnotify
     libreoffice
+    gnupg pinentry
 
     xsel
     xclip
     xlibs.xkill
     xlibs.xmessage
+    xlibs.libX11
+    xlibs.libXinerama
+
     xfce.terminal
     xfce.ristretto
     xfce.gtk_xfce_engine

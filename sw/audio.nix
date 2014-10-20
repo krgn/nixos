@@ -11,5 +11,9 @@
     pavucontrol
     ladspaPlugins
     calf
+
+    alsaLib
+    alsaUtils
+    alsaPlugins 
   ];
 }
