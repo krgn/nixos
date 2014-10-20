@@ -25,6 +25,10 @@
     libreoffice
     gnupg pinentry
 
+    spotify
+    unrar    
+    unzip
+
     xsel
     xclip
     xlibs.xkill

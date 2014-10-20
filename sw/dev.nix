@@ -5,9 +5,12 @@
     wget curl
     vcsh mr
     vim emacs
-    atop htop iotop powertop
+    atop htop iotop iftop powertop
     tmux
-    git subversion
+    lsof
+    lshw
+    mosh
+    gitFull subversion mercurial darcs
     fish
     ranger
     silver-searcher
@@ -32,6 +35,11 @@
     kismet
     tcpdump
     ettercap
+    nmap
+    telnet
+
+    gparted
+    smartmontools
 
     emacs24Packages.cask
     

@@ -6,16 +6,17 @@
     ./software.nix
   ];
 
-
   time.timeZone = "Europe/Berlin";
 
-  nixpkgs = { 
-    config = {
-      allowUnfree = true;
-      firefox.enableAdobeFlash = true;
-      firefox.enableGoogleTalkPlugin = true;
-      chromium.enablePepperFlash = true;
-      chromium.enablePepperPDF = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    firefox.enableAdobeFlash = true;
+    firefox.enableGoogleTalkPlugin = true;
+    chromium.enablePepperFlash = true;
+    chromium.enablePepperPDF = true;
+
+    packageOverrides = pkgs: rec {
+      emacs = pkgs.emacs.override { librsvg = pkgs.librsvg; };
     };
   };
 
@@ -26,11 +27,7 @@
   };
 
   environment = {
-    shellInit = ''
-      export LD_LIBRARY_PATH=/lib64:$LD_LIBRARY_PATH
-      export GTK_PATH=${pkgs.xfce.gtk_xfce_engine}/lib/gtk-2.0
-      export GTK_DATA_PREFIX=${config.system.path}
-      export GIO_EXTRA_MODULES=${pkgs.xfce.gvfs}/lib/gio/modules
+    loginShellInit = ''
       case "$TERM" in
          "dumb")
              PS1="> "
@@ -42,9 +39,47 @@
              PS1="> "
              ;;
       esac
-      '';
-      pathsToLink =
-      [ "/share/xfce4" "/share/themes" "/share/mime" "/share/desktop-directories"];
+    '';
+
+    interactiveShellInit = ''
+      case "$TERM" in
+         "dumb")
+             PS1="> "
+             ;;
+         xterm*|rxvt*|eterm*|screen*)
+             echo "Not that dumb, your terminal."
+             ;;
+         *)
+             PS1="> "
+             ;;
+      esac
+    '';
+
+    shellInit = ''
+      export LD_LIBRARY_PATH=/lib64:$LD_LIBRARY_PATH
+      export GTK_PATH=${pkgs.xfce.gtk_xfce_engine}/lib/gtk-2.0
+      export GTK_DATA_PREFIX=${config.system.path}
+      export GIO_EXTRA_MODULES=${pkgs.xfce.gvfs}/lib/gio/modules
+
+      case "$TERM" in
+         "dumb")
+             PS1="> "
+             ;;
+         xterm*|rxvt*|eterm*|screen*)
+             echo "Not that dumb, your terminal."
+             ;;
+         *)
+             PS1="> "
+             ;;
+      esac
+    '';
+
+    pathsToLink = [ 
+      "/share/xfce4"
+      "/share/themes" 
+      "/share/mime" 
+      "/share/desktop-directories"
+    ];
   };
 
   boot = { 
