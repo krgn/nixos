@@ -12,6 +12,10 @@
       self.alex
       self.cabal2nix
       self.cabal2Ghci
+
+      self.xmonad
+      self.xmonadContrib
+      self.xmonadExtras
     ]))
   ];
 }
