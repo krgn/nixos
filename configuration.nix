@@ -156,7 +156,7 @@
         sessionCommands = ''
           source $HOME/.profile
 
-          eval $(gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+          eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
           
           export GNOME_KEYRING_CONTROL 
           export GNOME_KEYRING_PID
