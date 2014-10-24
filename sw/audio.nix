@@ -11,6 +11,7 @@
     pavucontrol
     ladspaPlugins
     calf
+    puredata
 
     alsaLib
     alsaUtils

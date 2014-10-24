@@ -42,6 +42,10 @@
 
   nix.maxJobs = 8;
 
-  services.xserver.xkbOptions = "compose:ralt";
+  services.xserver = {
+    xkbOptions = "compose:ralt";
+    xrandrHeads = [ "DVI-0" "VGA-0" ];
+  };
+
   networking.hostName = "poodle";
 }

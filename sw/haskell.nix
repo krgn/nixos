@@ -10,6 +10,7 @@
       self.hoogle
       self.happy
       self.alex
+      self.cabalInstall
       self.cabal2nix
       self.cabal2Ghci
 
