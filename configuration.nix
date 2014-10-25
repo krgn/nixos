@@ -122,11 +122,12 @@
     ];
   };
 
+  programs.ssh.startAgent = false;
+
   services = {
     printing.enable = true;
     bitlbee.enable = true;
 
-    gnome3.gnome-keyring.enable = true;
     nixosManual.showManual = true;
     avahi.enable = true;
     locate.enable = true;
@@ -146,6 +147,7 @@
       autorun = true;
       layout = "us";
 
+      startGnuPGAgent = false;
       desktopManager.xterm.enable = false;
       desktopManager.default      = "none";
 
@@ -156,13 +158,11 @@
         sessionCommands = ''
           source $HOME/.profile
 
-          eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
-          
-          export GNOME_KEYRING_CONTROL 
-          export GNOME_KEYRING_PID
-          export SSH_AUTH_SOCK
-          export GPG_AGENT_INFO
-          export GTK_IM_MODULE=xim
+          #export SSH_AUTH_SOCK
+          #export GPG_AGENT_INFO
+          #export GTK_IM_MODULE=xim
+
+          eval $(keychain --eval -Q --quiet id_rsa)
 
           exec feh --bg-center $HOME/pics/comet.jpg &
           exec xsetroot -solid black &

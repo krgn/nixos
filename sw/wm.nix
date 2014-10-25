@@ -50,8 +50,7 @@
     xfce.xfconf
     haskellPackages.xmobar
 
-    gnome3.gnome_keyring
-    gnome3.seahorse
+    keychain
 
     weechat figlet
     gnupg cowsay

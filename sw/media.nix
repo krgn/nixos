@@ -13,6 +13,8 @@
     calf
     puredata
 
+    handbrake
+
     libdvdcss
     libdvdnav
     libdvdread
