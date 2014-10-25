@@ -13,6 +13,10 @@
     calf
     puredata
 
+    libdvdcss
+    libdvdnav
+    libdvdread
+
     alsaLib
     alsaUtils
     alsaPlugins 
