@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./fonts.nix
     ./hardware.nix
     ./software.nix
   ];
@@ -210,31 +211,5 @@
       "systemd-journal" "keys"
     ];
     shell = "/run/current-system/sw/bin/bash";
-  };
-
-  fonts = {
-    enableFontDir = true;
-    enableGhostscriptFonts = true;
-    fonts = with pkgs; [
-      corefonts
-      inconsolata
-      anonymousPro
-      ubuntu_font_family
-      source-code-pro  
-      cantarell_fonts
-      dejavu_fonts
-      dosemu_fonts 
-      ttf_bitstream_vera
-      freefont_ttf
-      ipafont
-      liberation_ttf
-      lohit-fonts
-      proggyfonts
-      terminus_font
-      ttmkfdir
-      ubuntu_font_family
-      vistafonts
-      ucsFonts
-    ];
   };
 }
