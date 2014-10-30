@@ -50,6 +50,7 @@
     xfce.xfconf
     haskellPackages.xmobar
 
+    gtypist
     keychain
 
     weechat figlet

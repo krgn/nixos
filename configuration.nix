@@ -5,9 +5,12 @@
     ./fonts.nix
     ./hardware.nix
     ./software.nix
+    <nixos/modules/programs/virtualbox.nix>
   ];
 
   time.timeZone = "Europe/Berlin";
+
+  virtualisation.docker.enable = true;
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -19,6 +22,8 @@
     packageOverrides = pkgs: rec {
       emacs = pkgs.emacs.override { librsvg = pkgs.librsvg; };
     };
+
+    virtualbox.enableExtensionPack = true;
   };
 
   nix = {
@@ -158,13 +163,11 @@
         desktopManagerHandlesLidAndPower = false;
         sessionCommands = ''
           source $HOME/.profile
-
-          #export SSH_AUTH_SOCK
-          #export GPG_AGENT_INFO
-          #export GTK_IM_MODULE=xim
+          # important for $HOME/.XCompose to work
+          export GTK_IM_MODULE=xim
+          export QT_IM_MODULE=xim
 
           eval $(keychain --eval -Q --quiet id_rsa)
-
           exec feh --bg-center $HOME/pics/comet.jpg &
           exec xsetroot -solid black &
           exec nm-applet &
@@ -202,7 +205,7 @@
     createHome = true;
     home = "/home/k";
     extraGroups = [ 
-      "wheel" "kmem"
+      "wheel" "kmem" "vboxusers"
       "messagebus" "disk"
       "audio" "floppy" 
       "uucp" "lp" "cdrom"

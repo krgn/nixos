@@ -42,7 +42,14 @@
     smartmontools
 
     emacs24Packages.cask
-    
+    ctags
+    nix-prefetch-scripts
+
+    gdb
+    gforth
+    mono
+    fsharp
+
     aspell
     aspellDicts.en
     aspellDicts.de
