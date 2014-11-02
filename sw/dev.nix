@@ -45,6 +45,13 @@
     ctags
     nix-prefetch-scripts
 
+    ruby_2_1_2
+    rubyLibs.bundler
+    
+    nodejs
+    nodePackages.npm
+    nodePackages.npm2nix
+
     gdb
     gforth
     mono
