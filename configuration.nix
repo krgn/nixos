@@ -30,6 +30,9 @@
     package = pkgs.nixUnstable;
     gc.automatic = true;
     useChroot = true;
+    extraOptions = ''
+      binary-caches-parallel-connections = 200
+    '';
   };
 
   environment = {
@@ -205,7 +208,8 @@
     createHome = true;
     home = "/home/k";
     extraGroups = [ 
-      "wheel" "kmem" "vboxusers"
+      "wheel" "kmem"
+      "vboxusers" "docker"
       "messagebus" "disk"
       "audio" "floppy" 
       "uucp" "lp" "cdrom"
