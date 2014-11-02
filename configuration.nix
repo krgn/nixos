@@ -36,6 +36,8 @@
   };
 
   environment = {
+    etc."hosts".mode = "0644";
+
     loginShellInit = ''
       case "$TERM" in
          "dumb")
