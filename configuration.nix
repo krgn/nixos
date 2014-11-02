@@ -141,6 +141,16 @@
     avahi.enable = true;
     locate.enable = true;
 
+    redshift = {
+      enable = true;
+      brightness.day = "1.0";
+      brightness.night = "0.7";
+      temperature.day = 5500;
+      temperature.night = 4500;
+      latitude = "52.51";
+      longitude = "13.4";
+    };
+
     openssh = {
       enable = true;
       forwardX11 = false;
