@@ -30,6 +30,7 @@
     automake
   
     # msf
+    inetutils
     arp-scan 
     wireshark
     kismet
@@ -40,6 +41,7 @@
 
     gparted
     smartmontools
+    dmidecode
 
     emacs24Packages.cask
     ctags
