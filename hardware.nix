@@ -1,7 +1,1 @@
-{ config, pkgs, ... }:
-
-{
-  imports = [
-    ./hw/asus.nix
-  ];
-}
+hw/nsync.nix

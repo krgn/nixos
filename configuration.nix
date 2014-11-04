@@ -147,8 +147,8 @@
       enable = true;
       brightness.day = "1.0";
       brightness.night = "0.7";
-      temperature.day = 5500;
-      temperature.night = 4500;
+      temperature.day = 5700;
+      temperature.night = 5000;
       latitude = "52.51";
       longitude = "13.4";
     };

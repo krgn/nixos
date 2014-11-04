@@ -31,6 +31,7 @@
     automake
   
     # msf
+    inetutils
     arp-scan 
     wireshark
     kismet
@@ -38,9 +39,11 @@
     ettercap
     nmap
     telnet
+    bind
 
     gparted
     smartmontools
+    dmidecode
 
     emacs24Packages.cask
     ctags
