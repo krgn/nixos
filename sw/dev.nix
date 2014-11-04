@@ -19,6 +19,7 @@
     couchdb
     postgresql94
 
+    which
     tree
     file
     clang
