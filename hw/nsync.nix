@@ -9,6 +9,7 @@
     ];
 
   boot.initrd.availableKernelModules = [ "uhci_hcd" "ehci_pci" "ahci" "usbhid" "usb_storage" ];
+  boot.blacklistedKernelModules = [ "nouveau" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
   boot.initrd.luks.devices = [
@@ -36,5 +37,9 @@
 
   nix.maxJobs = 8;
   networking.hostName = "lorax";
-  services.xserver.xkbOptions = "compose:ralt";
+  services.xserver = {
+    xkbOptions = "compose:ralt";
+    videoDrivers = [ "nvidia" ];
+    driSupport32Bit = true;
+  };
 }

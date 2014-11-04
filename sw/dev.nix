@@ -38,6 +38,7 @@
     ettercap
     nmap
     telnet
+    bind
 
     gparted
     smartmontools
