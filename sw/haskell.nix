@@ -13,8 +13,11 @@
       self.cabalInstall
       self.cabal2nix
       self.cabal2Ghci
-
+      self.purescript
+      
       self.xmonad
+      self.xmobar
+      self.taffybar
       self.xmonadContrib
       self.xmonadExtras
     ]))
