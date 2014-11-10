@@ -227,7 +227,7 @@
       "uucp" "lp" "cdrom"
       "tape" "video" "dialout"
       "utmp" "adm" "networkmanager"
-      "systemd-journal" "keys"
+      "systemd-journal" "keys" "nixbld"
     ];
     shell = "/run/current-system/sw/bin/bash";
   };
