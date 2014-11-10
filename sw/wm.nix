@@ -48,7 +48,6 @@
     xfce.xfce4settings
     xfce.xfce4notifyd
     xfce.xfconf
-    haskellPackages.xmobar
 
     gtypist
     keychain
