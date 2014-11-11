@@ -95,6 +95,10 @@
     loader.grub.version = 2;
     loader.grub.device = "/dev/sda";
     blacklistedKernelModules = [ "snd_pcsp" "pcspkr" ];
+    kernel.sysctl = {
+      "vm.swappiness" = 50;
+      "fs.inotify.max_user_watches" = 524288;
+    };
   };
 
   networking = { 
@@ -182,7 +186,7 @@
           export GTK_IM_MODULE=xim
           export QT_IM_MODULE=xim
 
-          eval $(keychain --eval -Q --quiet id_rsa)
+          eval $(keychain --eval -Q --quiet --agents gpg,ssh id_rsa fook_rsa poodle ptolemy_rsa)
           exec feh --bg-center $HOME/pics/comet.jpg &
           exec xsetroot -solid black &
           exec nm-applet &
