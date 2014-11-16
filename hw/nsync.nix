@@ -40,6 +40,5 @@
   services.xserver = {
     xkbOptions = "compose:ralt";
     videoDrivers = [ "nvidia" ];
-    driSupport32Bit = true;
   };
 }

@@ -147,6 +147,47 @@
     avahi.enable = true;
     locate.enable = true;
 
+     udev.extraRules = ''
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="0502", OWNER="k", GROUP="users", MODE="0666"
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="0b05", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="413c", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="0489", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="04c5", OWNER="k", GROUP="users", MODE="0666" 
+       SUBSYSTEM=="usb", ATTRS{idVendor}=="04c5", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="091e", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="18d1", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="201E", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="109b", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="0bb4", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="12d1", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="8087", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="24e3", OWNER="k", GROUP="users", MODE="0666" 
+       SUBSYSTEM=="usb", ATTRS{idVendor}=="2116", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="0482", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="17ef", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="1004", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="22b8", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="0e8d", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="0409", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="2080", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="0955", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="2257", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="10a9", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="1d4d", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="0471", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="04da", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="05c6", OWNER="k", GROUP="users", MODE="0666" 
+       SUBSYSTEM=="usb", ATTRS{idVendor}=="1f53", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="04e8", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="04dd", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="054c", OWNER="k", GROUP="users", MODE="0666" 
+       SUBSYSTEM=="usb", ATTRS{idVendor}=="0fce", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="2340", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="0930", OWNER="k", GROUP="users", MODE="0666" 
+	     SUBSYSTEM=="usb", ATTRS{idVendor}=="19d2", OWNER="k", GROUP="users", MODE="0666"
+     '';
+
+
     redshift = {
       enable = true;
       brightness.day = "1.0";
@@ -231,7 +272,7 @@
       "uucp" "lp" "cdrom"
       "tape" "video" "dialout"
       "utmp" "adm" "networkmanager"
-      "systemd-journal" "keys" "nixbld"
+      "systemd-journal" "keys"
     ];
     shell = "/run/current-system/sw/bin/bash";
   };

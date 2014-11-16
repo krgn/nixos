@@ -8,13 +8,14 @@
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
     ];
 
-  boot.initrd.availableKernelModules = [ "nouveau" "xhci_hcd" "ehci_pci" "ahci" "usb_storage" "usbhid" ];
+  boot.initrd.availableKernelModules = [ "xhci_hcd" "ehci_pci" "ahci" "usb_storage" "usbhid" ];
   boot.initrd.luks.devices = [ 
     { name = "pvol1"; device = "/dev/sda3"; preLVM = true; }  
     { name = "pvol2"; device = "/dev/sdb1"; preLVM = true; }  
   ];
   boot.kernelModules = [ "kvm-intel" "aes" "sha1" "sha256" "xts" ];
   boot.extraModulePackages = [ ];
+  boot.blacklistedKernelModules = [ "nouveau" ];
 
   fileSystems."/" =
     { device = "/dev/mapper/poodle-root";
@@ -31,11 +32,6 @@
       fsType = "ext4";
     };
 
-  fileSystems."/var" =
-    { device = "/dev/mapper/poodle-var";
-      fsType = "ext4";
-    };
-
   swapDevices =
     [ { device = "/dev/dm-2"; }
     ];
@@ -44,6 +40,7 @@
 
   services.xserver = {
     xkbOptions = "compose:ralt";
+    videoDrivers = [ "nvidia" ];
     xrandrHeads = [ "DVI-0" "VGA-0" ];
   };
 
