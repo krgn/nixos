@@ -5,7 +5,8 @@
     vlc mplayer	
     audacity 
     qjackctl
-    jack2
+    jack2Full
+    ardour
     supercollider
     supercollider_scel
     pavucontrol
@@ -24,3 +25,4 @@
     alsaPlugins 
   ];
 }
+

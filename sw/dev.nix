@@ -5,6 +5,7 @@
     wget curl
     vcsh mr
     vim emacs
+    monodevelop
     atop htop iotop iftop powertop
     tmux
     lsof
@@ -16,9 +17,9 @@
     silver-searcher
     psmisc
     docker
-    couchdb
-    postgresql94
 
+    meld
+    man_db
     which
     tree
     file
@@ -29,12 +30,11 @@
     gnumake
     autoconf
     automake
+    coreutils
   
-    # msf
     inetutils
     arp-scan 
     wireshark
-    kismet
     tcpdump
     ettercap
     nmap
@@ -45,21 +45,21 @@
     smartmontools
     dmidecode
 
-    emacs24Packages.cask
+    # emacs24Packages.cask
     ctags
     nix-prefetch-scripts
 
-    ruby_2_1_2
-    rubyLibs.bundler
+    ruby python
     
     nodejs
     nodePackages.npm
-    nodePackages.npm2nix
 
     gdb
     gforth
     mono
     fsharp
+
+    docker 
 
     aspell
     aspellDicts.en

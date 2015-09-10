@@ -2,12 +2,11 @@
 
 {
   environment.systemPackages = with pkgs; [
-    firefoxWrapper
-    conkerorWrapper
-    dmenu 
+    firefox
+    keepass
     gimp inkscape
     chromium 
-    offlineimap notmuch msmtp
+    offlineimap notmuch 
     evince
     xarchiver
     arandr
@@ -15,17 +14,16 @@
     networkmanagerapplet
     gucharmap
     xdg_utils
-    i3lock
     gtk 
     gnome.gnomeicontheme 
     hicolor_icon_theme
     shared_mime_info
     skype
+    spotify
     libnotify
     libreoffice
     gnupg pinentry
 
-    spotify
     unrar    
     unzip
 
@@ -37,7 +35,6 @@
     xlibs.libX11
     xlibs.libXinerama
 
-    xfce.terminal
     xfce.ristretto
     xfce.gtk_xfce_engine
     xfce.gvfs 
@@ -45,22 +42,12 @@
     xfce.thunar_volman 
     xfce.tumbler
     xfce.xfce4icontheme
-    xfce.xfce4settings
-    xfce.xfce4notifyd
-    xfce.xfconf
 
     gtypist
     keychain
 
-    weechat figlet
-    gnupg cowsay
+    figlet cowsay
 
-    aspell
-    aspellDicts.en
-    aspellDicts.de
-
-    python27Full
-    python27Packages.afew
-    python27Packages.keyring
+    pythonPackages.afew
   ];
 }
