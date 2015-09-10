@@ -45,7 +45,7 @@
   networking.hostName = "lorax";
   
   services.xserver.xkbOptions = "compose:ralt";
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [ "nvidiaLegacy304" ];
 
   nix.maxJobs = 8;
 }
