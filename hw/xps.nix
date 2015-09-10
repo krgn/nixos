@@ -34,12 +34,19 @@
     [ { device = "/dev/disk/by-uuid/f2ece8a2-48fc-454e-b8cb-d2d094b7179f"; }
     ];
 
+  networking.hostName = "peng";
   
   services.xserver.xkbOptions = "compose:ralt,ctrl:swapcaps";
 
   services.xserver.synaptics = {
     enable = true;
+    vertEdgeScroll = false;
+    tapButtons = false;
     twoFingerScroll = true;
+    additionalOptions = ''
+      Option "VertScrollDelta" "-18"
+      Option "HorizScrollDelta" "18"
+    '';
   };
 
   nix.maxJobs = 4;

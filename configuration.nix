@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 { imports =
-    [ ./hardware-configuration.nix
+    [ ./hw.nix
       ./sw/i3.nix
       ./sw/fonts.nix
       ./sw/evilvte.nix
@@ -25,7 +25,6 @@
   };
 
   networking = {
-    hostName = "peng";
     extraHosts = "127.0.0.1 news.ycombinator.com www.reddit.com";
     networkmanager.enable = true;
     networkmanager.appendNameservers = [
