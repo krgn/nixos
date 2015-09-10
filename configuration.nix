@@ -62,6 +62,7 @@
     printing.enable = true;
     avahi.enable = true;
     locate.enable = true;
+
     openssh = {
       enable = true;
       forwardX11 = false;
