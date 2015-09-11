@@ -1,9 +1,10 @@
 { config, pkgs, ... }:
 
 {
+
   environment.systemPackages = with pkgs; [
     firefox
-    keepass
+    keepassx
     gimp inkscape
     chromium 
     offlineimap notmuch 
@@ -15,8 +16,6 @@
     gucharmap
     xdg_utils
     gtk 
-    gnome.gnomeicontheme 
-    hicolor_icon_theme
     shared_mime_info
     skype
     spotify
@@ -42,6 +41,8 @@
     xfce.thunar_volman 
     xfce.tumbler
     xfce.xfce4icontheme
+    tango-icon-theme
+    gnome3.adwaita-icon-theme  
 
     gtypist
     keychain

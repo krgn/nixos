@@ -179,7 +179,6 @@
       bindsym $win+t      exec "thunar"
       bindsym $win+Return exec "evilvte"
       
-      exec "nm-applet"
       exec "xsetroot -solid black"
       exec "emacsclient -c"
       exec "evilvte"
@@ -334,15 +333,19 @@
     layout = "us";
 
     displayManager = { 
-      slim.enable = true;    
+      auto.enable = true;    
+      auto.user = "k";
+      sessionCommands = with pkgs; ''
+          ${i3}/bin/i3
+      '';
       desktopManagerHandlesLidAndPower = false;
     };
 
     desktopManager.xterm.enable = false;
 
-    windowManager.i3 = {
-      enable = true;
-      configFile = "/etc/i3/config";
-    };
+    # windowManager.i3 = {
+    #   enable = false;
+    #   configFile = "/etc/i3/config";
+    # };
   };
 }

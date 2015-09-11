@@ -54,7 +54,7 @@
     ];
   };
 
-  programs.ssh.startAgent = true;
+  programs.ssh.startAgent = false;
 
   time.timeZone = "Europe/Berlin";
 
@@ -62,6 +62,7 @@
     printing.enable = true;
     avahi.enable = true;
     locate.enable = true;
+    udisks2.enable = true;	
     openssh = {
       enable = true;
       forwardX11 = false;
@@ -72,6 +73,11 @@
       '';
     };
   };
+
+  hardware.pulseaudio = {
+    enable = true;
+    package = pkgs.pulseaudioFull;
+  }; 
 
   users.extraUsers.k = {
     isNormalUser = true;
@@ -114,11 +120,18 @@
  environment = {
     etc."hosts".mode = "0644";
 
-    # pathsToLink = [
-    #   "/share/xfce4"
-    #   "/share/themes"
-    #   "/share/mime"
-    #   "/share/desktop-directories"
-    # ];
+    variables.DBUS_SESSION_BUS_ADDRESS = "/run/user/${builtins.toString config.users.extraUsers.k.uid}/dbus/user_bus_socket";
+    variables.GTK_PATH = "${pkgs.xfce.gtk_xfce_engine}/lib/gtk-2.0";
+    variables.GTK_DATA_PREFIX = "${config.system.path}";
+    variables.GIO_EXTRA_MODULES = "${pkgs.xfce.gvfs}/lib/gio/modules";
+    variables.GTK_IM_MODULE = "xim";
+    variables.QT_IM_MODULE = "xim";
+
+    pathsToLink = [
+      "/share/xfce4"
+      "/share/themes"
+      "/share/mime"
+      "/share/desktop-directories"
+    ];
   };
 }
