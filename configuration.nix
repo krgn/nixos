@@ -8,7 +8,6 @@
       ./sw/dev.nix
       ./sw/desktop.nix
       ./sw/media.nix
-      ./sw/systemd.nix
     ];
 
   virtualisation.docker.enable = true;
@@ -54,15 +53,17 @@
     ];
   };
 
-  programs.ssh.startAgent = false;
-
   time.timeZone = "Europe/Berlin";
 
   services = {
     printing.enable = true;
     avahi.enable = true;
+
     locate.enable = true;
-    udisks2.enable = true;	
+    locate.period = "00 12 * * *";
+
+    udisks2.enable = true;
+
     openssh = {
       enable = true;
       forwardX11 = false;
@@ -77,7 +78,7 @@
   hardware.pulseaudio = {
     enable = true;
     package = pkgs.pulseaudioFull;
-  }; 
+  };
 
   users.extraUsers.k = {
     isNormalUser = true;
@@ -115,12 +116,14 @@
     '';
   };
 
- programs.bash.promptInit = "PS1=\"# \"";
+ programs.bash = {
+    promptInit = "PS1=\"# \"";
+    enableCompletion = true;
+ };
 
  environment = {
     etc."hosts".mode = "0644";
 
-    variables.DBUS_SESSION_BUS_ADDRESS = "/run/user/${builtins.toString config.users.extraUsers.k.uid}/dbus/user_bus_socket";
     variables.GTK_PATH = "${pkgs.xfce.gtk_xfce_engine}/lib/gtk-2.0";
     variables.GTK_DATA_PREFIX = "${config.system.path}";
     variables.GIO_EXTRA_MODULES = "${pkgs.xfce.gvfs}/lib/gio/modules";

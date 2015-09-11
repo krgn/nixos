@@ -4,9 +4,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-    ];
+  imports = [
+     <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+    ../sw/laptop.nix
+  ];
 
   boot.initrd.availableKernelModules = [ "uhci_hcd" "ehci_pci" "ahci" "usb_storage" ];
   boot.initrd.luks.devices = [ 
@@ -37,21 +38,4 @@
   nix.maxJobs = 2;
 
   networking.hostName = "nanook";
-
-  services = {
-    xserver = {
-      xkbOptions = "ctrl:swapcaps,compose:ralt";
-
-      synaptics = {
-        enable = true;
-        vertEdgeScroll = false;
-        tapButtons = false;
-        twoFingerScroll = true;
-        additionalOptions = ''
-          Option "VertScrollDelta" "-18"
-          Option "HorizScrollDelta" "18"
-        '';
-      };
-    };
-  };
 }

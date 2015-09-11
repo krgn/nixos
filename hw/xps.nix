@@ -4,9 +4,10 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-    ];
+  imports = [
+    <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+    ../sw/laptop.nix
+  ];
 
   boot.initrd.luks.devices = [
     { name = "peng"; device = "/dev/sda3"; preLVM = true; }
@@ -35,19 +36,8 @@
     ];
 
   networking.hostName = "peng";
-  
-  services.xserver.xkbOptions = "compose:ralt,ctrl:swapcaps";
 
-  services.xserver.synaptics = {
-    enable = true;
-    vertEdgeScroll = false;
-    tapButtons = false;
-    twoFingerScroll = true;
-    additionalOptions = ''
-      Option "VertScrollDelta" "-18"
-      Option "HorizScrollDelta" "18"
-    '';
-  };
+  services.xserver.xkbOptions = "compose:ralt,ctrl:swapcaps";
 
   nix.maxJobs = 4;
 }
