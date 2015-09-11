@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  hardware.bluetooth.enable = true;
+
   services.xserver.synaptics = {
     enable = true;
     vertEdgeScroll = false;

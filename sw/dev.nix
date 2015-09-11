@@ -19,7 +19,6 @@
     docker
 
     meld
-    man_db
     which
     tree
     file
@@ -32,20 +31,17 @@
     automake
     coreutils
   
-    inetutils
     arp-scan 
     wireshark
     tcpdump
     ettercap
     nmap
     telnet
-    bind
 
     gparted
     smartmontools
     dmidecode
 
-    # emacs24Packages.cask
     ctags
     nix-prefetch-scripts
 

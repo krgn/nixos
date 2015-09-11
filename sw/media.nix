@@ -8,7 +8,6 @@
     jack2Full
     ardour
     supercollider
-    supercollider_scel
     pavucontrol
     ladspaPlugins
     calf

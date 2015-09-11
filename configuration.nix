@@ -11,6 +11,8 @@
     ];
 
   virtualisation.docker.enable = true;
+  virtualisation.docker.storageDriver = "btrfs";
+
   # virtualisation.virtualbox.guest.enable = true; # only need this *inside* a VM
   virtualisation.virtualbox.host.enable = true;
 
@@ -75,9 +77,16 @@
     };
   };
 
-  hardware.pulseaudio = {
-    enable = true;
-    package = pkgs.pulseaudioFull;
+  hardware = {
+    cpu.intel.updateMicrocode = true;
+
+    opengl.driSupport = true;
+    opengl.driSupport32Bit = true;
+
+    pulseaudio = {
+      enable = true;
+      package = pkgs.pulseaudioFull;
+    };
   };
 
   users.extraUsers.k = {
@@ -102,8 +111,13 @@
     allowUnfree = true;
     firefox.enableAdobeFlash = true;
     firefox.enableGoogleTalkPlugin = true;
-    chromium.enablePepperFlash = true;
-    chromium.enablePepperPDF = true;
+    chromium = {
+      proprietaryCodecs = true;
+      enablePepperFlash = true;
+      enablePepperPDF = true;
+      enableWideVine = true;
+      enableNacl = true;
+    };
     #virtualbox.enableExtensionPack = true;
   };
 
@@ -124,12 +138,18 @@
  environment = {
     etc."hosts".mode = "0644";
 
-    variables.NOTMUCH_CONFIG = "${config.users.extraUsers.k.home}/.config/notmuch/config";
-    variables.GTK_PATH = "${pkgs.xfce.gtk_xfce_engine}/lib/gtk-2.0";
-    variables.GTK_DATA_PREFIX = "${config.system.path}";
-    variables.GIO_EXTRA_MODULES = "${pkgs.xfce.gvfs}/lib/gio/modules";
-    variables.GTK_IM_MODULE = "xim";
-    variables.QT_IM_MODULE = "xim";
+    profileRelativeEnvVars = {
+      MANPATH = [ "/man" "/share/man" ];
+    };
+
+    variables = { 
+      NOTMUCH_CONFIG = "${config.users.extraUsers.k.home}/.config/notmuch/config";
+      GTK_PATH = "${pkgs.xfce.gtk_xfce_engine}/lib/gtk-2.0";
+      GTK_DATA_PREFIX = "${config.system.path}";
+      GIO_EXTRA_MODULES = "${pkgs.xfce.gvfs}/lib/gio/modules";
+      GTK_IM_MODULE = "xim";
+      QT_IM_MODULE = "xim";
+    };
 
     pathsToLink = [
       "/share/xfce4"

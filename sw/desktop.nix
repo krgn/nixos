@@ -5,7 +5,7 @@
     firefox
     keepassx2
     gimp inkscape
-    chromium 
+    chromium
     offlineimap notmuch 
     evince
     xarchiver
@@ -25,6 +25,7 @@
     unrar    
     unzip
     multimarkdown
+    scrot
     xlibs.xev
     xsel
     xclip
