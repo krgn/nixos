@@ -22,7 +22,7 @@
     libnotify
     libreoffice
     gnupg pinentry
-
+    msmtp
     unrar    
     unzip
 
