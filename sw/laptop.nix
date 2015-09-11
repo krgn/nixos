@@ -6,11 +6,14 @@
     vertEdgeScroll = false;
     tapButtons = false;
     twoFingerScroll = true;
-    accelFactor = "0.001";
+    accelFactor = "1";
     buttonsMap = [ 1 3 2 ];
+    palmDetect = true; 
     additionalOptions = ''
       Option "VertScrollDelta" "-18"
       Option "HorizScrollDelta" "18"
+      Option "CoastingFriction" "10"
+      Option "CoastingSpeed"    "50"
     '';
   };
 
