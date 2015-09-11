@@ -3,7 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     firefox
-    keepassx
+    keepassx2
     gimp inkscape
     chromium 
     offlineimap notmuch 
