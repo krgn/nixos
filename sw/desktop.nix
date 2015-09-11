@@ -24,7 +24,7 @@
     msmtp
     unrar    
     unzip
-
+    multimarkdown
     xlibs.xev
     xsel
     xclip

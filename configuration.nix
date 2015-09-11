@@ -124,6 +124,7 @@
  environment = {
     etc."hosts".mode = "0644";
 
+    variables.NOTMUCH_CONFIG = "${config.users.extraUsers.k.home}/.config/notmuch/config";
     variables.GTK_PATH = "${pkgs.xfce.gtk_xfce_engine}/lib/gtk-2.0";
     variables.GTK_DATA_PREFIX = "${config.system.path}";
     variables.GIO_EXTRA_MODULES = "${pkgs.xfce.gvfs}/lib/gio/modules";
