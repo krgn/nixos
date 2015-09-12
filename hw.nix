@@ -1,0 +1,1 @@
+hw/xps.nix

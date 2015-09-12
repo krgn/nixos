@@ -11,7 +11,7 @@
     ];
 
   virtualisation.docker.enable = true;
-  virtualisation.docker.storageDriver = "btrfs";
+  virtualisation.docker.storageDriver = "overlay";
 
   # virtualisation.virtualbox.guest.enable = true; # only need this *inside* a VM
   virtualisation.virtualbox.host.enable = true;
@@ -66,6 +66,12 @@
 
     udisks2.enable = true;
 
+    syncthing = {
+      enable = true;
+      user = "k";
+      dataDir = "/home/k/.cache/syncthing";
+    };
+
     openssh = {
       enable = true;
       forwardX11 = false;
@@ -118,7 +124,7 @@
       enableWideVine = true;
       enableNacl = true;
     };
-    #virtualbox.enableExtensionPack = true;
+    # virtualbox.enableExtensionPack = true;
   };
 
   nix = {
@@ -138,9 +144,9 @@
  environment = {
     etc."hosts".mode = "0644";
 
-    profileRelativeEnvVars = {
-      MANPATH = [ "/man" "/share/man" ];
-    };
+    # profileRelativeEnvVars = {
+    #   MANPATH = [ "/man" "/share/man" ];
+    # };
 
     variables = { 
       NOTMUCH_CONFIG = "${config.users.extraUsers.k.home}/.config/notmuch/config";
@@ -151,11 +157,11 @@
       QT_IM_MODULE = "xim";
     };
 
-    pathsToLink = [
-      "/share/xfce4"
-      "/share/themes"
-      "/share/mime"
-      "/share/desktop-directories"
-    ];
+    # pathsToLink = [
+    #   "/share/xfce4"
+    #   "/share/themes"
+    #   "/share/mime"
+    #   "/share/desktop-directories"
+    # ];
   };
 }

@@ -14,12 +14,12 @@
       ttf_bitstream_vera
       freefont_ttf
       liberation_ttf
-      # xorg.fontbhttf
-      # xorg.fontbhlucidatypewriter100dpi
-      # xorg.fontbhlucidatypewriter75dpi
-      # xorg.fontbh100dpi
-      # xorg.fontmiscmisc
-      # xorg.fontcursormisc
+      # symbola # upstream download unavailable
+      arkpandora_ttf
+      baekmuk-ttf
+      bakoma_ttf
+      opensans-ttf
+      font-awesome-ttf
     ];
   };
 }
