@@ -1,8 +1,6 @@
 Todo:
 -----
 
-- firewall settings
+- firewall
 - backup
 - vpn
-- tor
-- bluetooth
