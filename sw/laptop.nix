@@ -2,6 +2,7 @@
 
 {
   hardware.bluetooth.enable = true;
+  programs.light.enable = true;
 
   services.xserver.synaptics = {
     enable = true;

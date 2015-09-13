@@ -136,9 +136,11 @@
     '';
   };
 
- programs.bash = {
-    promptInit = "PS1=\"# \"";
-    enableCompletion = true;
+ programs = {
+   bash = {
+      promptInit = "PS1=\"# \"";
+      enableCompletion = true;
+   };
  };
 
  environment = {

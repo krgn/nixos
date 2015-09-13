@@ -5,6 +5,8 @@
     firefox
     keepassx2
     gimp inkscape
+    kde4.calligra 
+    gnome3.cheese gnome3.gnome-video-effects
     chromium
     offlineimap notmuch 
     evince
