@@ -65,6 +65,15 @@
     locate.period = "00 12 * * *";
 
     udisks2.enable = true;
+ 
+    tor = {
+      enable = true;
+      client = { 
+        enable = true;
+        socksListenAddress = "127.0.0.1:9050";
+        socksListenAddressFaster = "127.0.0.1:9052";
+      };
+    };
 
     syncthing = {
       enable = true;
