@@ -29,8 +29,19 @@
     extraHosts = "127.0.0.1 news.ycombinator.com www.reddit.com";
     networkmanager.enable = true;
     networkmanager.appendNameservers = [
-      "8.8.8.8" "8.8.4.4"
+      "84.200.69.80" # dns.watch servers
+      "84.200.70.40"
     ];
+    firewall = {
+      allowPing = false;
+      allowedTCPPorts = [ 22 ]; # incoming connections allowed
+      allowedTCPPortRanges = [];
+      allowedUDPPorts = [];
+      allowedUDPPortRanges = [];
+      connectionTrackingModules = [];
+      # extraCommands = '' cmd here '';
+      # extraStopCommands = '' cmd here '';
+    };
   };
 
   i18n = {
@@ -65,10 +76,10 @@
     locate.period = "00 12 * * *";
 
     udisks2.enable = true;
- 
+
     tor = {
       enable = true;
-      client = { 
+      client = {
         enable = true;
         socksListenAddress = "127.0.0.1:9050";
         socksListenAddressFaster = "127.0.0.1:9052";
@@ -155,13 +166,14 @@
  environment = {
     etc."hosts".mode = "0644";
 
-    variables = { 
-      NOTMUCH_CONFIG = "$HOME/.config/notmuch/config";
-      GTK_PATH = "${pkgs.xfce.gtk_xfce_engine}/lib/gtk-2.0";
-      GTK_DATA_PREFIX = "${config.system.path}";
+    variables = {
+      NOTMUCH_CONFIG    = "$HOME/.config/notmuch/config";
+      GTK_PATH          = "${pkgs.xfce.gtk_xfce_engine}/lib/gtk-2.0";
+      GTK_DATA_PREFIX   = "${config.system.path}";
       GIO_EXTRA_MODULES = "${pkgs.xfce.gvfs}/lib/gio/modules";
-      GTK_IM_MODULE = "xim";
-      QT_IM_MODULE = "xim";
+      GTK_IM_MODULE     = "xim";
+      QT_IM_MODULE      = "xim";
     };
   };
+
 }
