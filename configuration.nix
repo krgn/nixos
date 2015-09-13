@@ -146,24 +146,13 @@
  environment = {
     etc."hosts".mode = "0644";
 
-    # profileRelativeEnvVars = {
-    #   MANPATH = [ "/man" "/share/man" ];
-    # };
-
     variables = { 
-      NOTMUCH_CONFIG = "${config.users.extraUsers.k.home}/.config/notmuch/config";
+      NOTMUCH_CONFIG = "$HOME/.config/notmuch/config";
       GTK_PATH = "${pkgs.xfce.gtk_xfce_engine}/lib/gtk-2.0";
       GTK_DATA_PREFIX = "${config.system.path}";
       GIO_EXTRA_MODULES = "${pkgs.xfce.gvfs}/lib/gio/modules";
       GTK_IM_MODULE = "xim";
       QT_IM_MODULE = "xim";
     };
-
-    # pathsToLink = [
-    #   "/share/xfce4"
-    #   "/share/themes"
-    #   "/share/mime"
-    #   "/share/desktop-directories"
-    # ];
   };
 }

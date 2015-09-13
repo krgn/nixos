@@ -2,55 +2,59 @@
 
 {
   environment.systemPackages = with pkgs; [
-    firefox
-    keepassx2
-    gimp inkscape
-    kde4.calligra 
-    gnome3.cheese gnome3.gnome-video-effects
-    chromium
-    offlineimap notmuch 
-    evince
-    xarchiver
     arandr
-    trayer
-    networkmanagerapplet
-    gucharmap
-    xdg_utils
+    chromium
+    cowsay
+    evince
+    figlet 
+    firefox
+    geeqie
+    gimp 
+    gnome3.adwaita-icon-theme  
+    gnome3.cheese 
+    gnome3.gnome-video-effects
+    gnupg 
     gtk 
+    gtypist
+    gucharmap
+    inkscape
+    kde4.calligra 
+    keepassx2
+    keychain
+    libnotify
+    libreoffice
+    msmtp
+    multimarkdown
+    networkmanagerapplet
+    notmuch 
+    offlineimap 
+    pamixer
+    pinentry
+    pythonPackages.afew
+    scrot
     shared_mime_info
     skype
     spotify
-    libnotify
-    libreoffice
-    gnupg pinentry
-    msmtp
+    tango-icon-theme
+    trayer
     unrar    
     unzip
-    multimarkdown
-    scrot
-    xlibs.xev
-    xsel
+    xarchiver
     xclip
-    xlibs.xkill
-    xlibs.xmessage
-    xlibs.libX11
-    xlibs.libXinerama
-
-    xfce.ristretto
+    xdg_utils
     xfce.gtk_xfce_engine
     xfce.gvfs 
+    xfce.ristretto
     xfce.thunar 
     xfce.thunar_volman 
     xfce.tumbler
     xfce.xfce4icontheme
-    tango-icon-theme
-    gnome3.adwaita-icon-theme  
-
-    gtypist
-    keychain
-
-    figlet cowsay
-
-    pythonPackages.afew
+    xlibs.libX11
+    xlibs.libXinerama
+    xlibs.xev
+    xlibs.xkill
+    xlibs.xmessage
+    xsel
+    xss-lock
   ];
 }
