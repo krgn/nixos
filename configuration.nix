@@ -72,8 +72,11 @@
     printing.enable = true;
     avahi.enable = true;
 
-    locate.enable = true;
-    locate.period = "00 12 * * *";
+    locate = {
+      enable = true;
+      period = "00 */6 * * *";
+      includeStore = true;
+    };
 
     udisks2.enable = true;
 
