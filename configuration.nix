@@ -69,7 +69,7 @@
     syncthing = {
       enable = true;
       user = "k";
-      dataDir = "/home/k/.cache/syncthing";
+      dataDir = "/home/k/.config/syncthing";
     };
 
     openssh = {
