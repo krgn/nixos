@@ -1,6 +1,5 @@
 Todo:
 -----
 
-- firewall
 - backup
 - vpn
