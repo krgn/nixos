@@ -49,6 +49,7 @@
     xfce.thunar_volman 
     xfce.tumbler
     xfce.xfce4icontheme
+    xfce.xfconf
     xlibs.libX11
     xlibs.libXinerama
     xlibs.xev

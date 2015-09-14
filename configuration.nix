@@ -16,13 +16,24 @@
   # virtualisation.virtualbox.guest.enable = true; # only need this *inside* a VM
   virtualisation.virtualbox.host.enable = true;
 
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  boot.loader.grub.device = "/dev/sda";
-  boot.cleanTmpDir = true;
-  boot.blacklistedKernelModules = [ "snd_pcsp" "pcspkr" ];
-  boot.kernel.sysctl = {
-    "fs.inotify.max_user_watches" = "1048576";
+  boot = {
+    loader = {
+      grub.enable = true;
+      grub.version = 2;
+      grub.device = "/dev/sda";
+    };
+    cleanTmpDir = true;
+    blacklistedKernelModules = [ "snd_pcsp" "pcspkr" ];
+    kernel.sysctl = {
+      "fs.inotify.max_user_watches" = "1048576";
+    };
+  };
+
+  boot.kernelPackages = pkgs.linuxPackages // {
+    virtualbox = pkgs.linuxPackages.virtualbox.override {
+      # enableExtensionPack = true;
+      pulseSupport = true;
+    };
   };
 
   networking = {
