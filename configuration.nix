@@ -169,6 +169,10 @@
  environment = {
     etc."hosts".mode = "0644";
 
+    pathsToLink = [
+      "/share/SuperCollider"
+    ];
+
     variables = {
       NOTMUCH_CONFIG    = "$HOME/.config/notmuch/config";
       GTK_PATH          = "${pkgs.xfce.gtk_xfce_engine}/lib/gtk-2.0";
@@ -178,5 +182,4 @@
       QT_IM_MODULE      = "xim";
     };
   };
-
 }
