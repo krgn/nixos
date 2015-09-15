@@ -29,13 +29,6 @@
     };
   };
 
-  boot.kernelPackages = pkgs.linuxPackages // {
-    virtualbox = pkgs.linuxPackages.virtualbox.override {
-      # enableExtensionPack = true;
-      pulseSupport = true;
-    };
-  };
-
   networking = {
     extraHosts = "127.0.0.1 news.ycombinator.com www.reddit.com";
     networkmanager.enable = true;
@@ -73,7 +66,7 @@
     };
     pam.loginLimits = [
       { domain = "@audio"; type = "-"; item = "rtprio"; value = "99"; }
-      { domain = "@audio"; type = "-"; item = "memlock"; value = "500000"; }
+      { domain = "@audio"; type = "-"; item = "memlock"; value = "unlimited"; }
     ];
   };
 
@@ -147,6 +140,13 @@
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "15.09";
 
+  boot.kernelPackages = pkgs.linuxPackages // {
+    virtualbox = pkgs.linuxPackages.virtualbox.override {
+      # enableExtensionPack = true;
+      pulseSupport = true;
+    };
+  };
+
   nixpkgs.config = {
     allowUnfree = true;
     firefox.enableAdobeFlash = true;
@@ -159,6 +159,13 @@
       enableNacl = true;
     };
     # virtualbox.enableExtensionPack = true;
+
+    packageOverrides = pkgs: rec {
+      supercollider = pkgs.supercollider.override {
+        useSCEL = true;
+      };
+      
+    };
   };
 
   nix = {
@@ -170,14 +177,14 @@
     '';
   };
 
- programs = {
-   bash = {
-      promptInit = "PS1=\"# \"";
-      enableCompletion = true;
-   };
- };
+  programs = {
+    bash = {
+       promptInit = "PS1=\"# \"";
+       enableCompletion = true;
+    };
+  };
 
- environment = {
+  environment = {
     etc."hosts".mode = "0644";
 
     pathsToLink = [

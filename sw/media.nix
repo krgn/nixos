@@ -2,18 +2,19 @@
 
 {
   environment.systemPackages = with pkgs; [
-    vlc mplayer	
-    audacity 
+    vlc mplayer
+    audacity
     qjackctl
     jack2Full
     ardour
-    supercollider
+
     pavucontrol
     ladspaPlugins
     calf
     puredata
 
     handbrake
+    supercollider
 
     libdvdcss
     libdvdnav
@@ -21,7 +22,6 @@
 
     alsaLib
     alsaUtils
-    alsaPlugins 
+    alsaPlugins
   ];
 }
-

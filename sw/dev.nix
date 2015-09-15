@@ -2,63 +2,65 @@
 
 {
   environment.systemPackages = with pkgs; [
-    wget curl
-    vcsh mr
-    vim emacs
-    monodevelop
-    atop htop iotop iftop powertop
-    tmux
-    lsof
-    lshw
-    mosh
-    gitFull subversion mercurial darcs
-    fish
-    ranger
-    silver-searcher
-    psmisc
-    docker
-
-    meld
-    which
-    tree
-    file
-    clang
-    llvm
-    gcc
-    cmake
-    gnumake
+    arp-scan
+    aspell
+    aspellDicts.de
+    aspellDicts.en
+    atop
     autoconf
     automake
+    clang
+    cmake
     coreutils
-  
-    arp-scan 
-    wireshark
-    tcpdump
-    ettercap
-    nmap
-    telnet
-
-    gparted
-    smartmontools
-    dmidecode
-
     ctags
-    nix-prefetch-scripts
-
-    ruby python
-    
-    nodejs
-    nodePackages.npm
-
+    curl
+    darcs
+    dmidecode
+    docker
+    docker
+    emacs
+    ettercap
+    file
+    fish
+    fsharp
+    gcc
     gdb
     gforth
+    gitFull
+    gnumake
+    gparted
+    htop
+    iftop
+    iotop
+    llvm
+    lshw
+    lsof
+    meld
+    mercurial
     mono
-    fsharp
-
-    docker 
-
-    aspell
-    aspellDicts.en
-    aspellDicts.de
+    monodevelop
+    mosh
+    mr
+    nix-prefetch-scripts
+    nmap
+    nodePackages.npm
+    nodejs
+    powertop
+    psmisc
+    python
+    ranger
+    ruby
+    silver-searcher
+    smartmontools
+    subversion
+    tcpdump
+    telnet
+    tmux
+    tree
+    vcsh
+    vim
+    wget
+    which
+    wireshark
   ];
 }
