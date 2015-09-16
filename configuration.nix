@@ -8,6 +8,7 @@
       ./sw/dev.nix
       ./sw/desktop.nix
       ./sw/media.nix
+      ./sw/haskell.nix
     ];
 
   virtualisation.docker.enable = true;

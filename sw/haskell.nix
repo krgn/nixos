@@ -3,13 +3,11 @@
 {
   environment.systemPackages = with pkgs; [
     gmp
+    pandoc
 
     (pkgs.haskellPackages.ghcWithPackages (self : [
-      self.cabalInstall
-      self.xmonad
-      self.xmobar
-      self.xmonadContrib
-      self.xmonadExtras
+      self.cabal-install
+      self.stack
     ]))
   ];
 }
