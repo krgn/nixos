@@ -45,6 +45,7 @@
     nmap
     nodePackages.npm
     nodejs
+    pandoc
     powertop
     psmisc
     python

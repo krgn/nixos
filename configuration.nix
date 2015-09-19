@@ -8,7 +8,6 @@
       ./sw/dev.nix
       ./sw/desktop.nix
       ./sw/media.nix
-      ./sw/haskell.nix
     ];
 
   virtualisation.docker.enable = true;
@@ -39,9 +38,14 @@
     ];
     firewall = {
       allowPing = false;
-      allowedTCPPorts = [ 22 ]; # incoming connections allowed
+      allowedTCPPorts = [ # incoming connections allowed
+	22 
+	22000 # sycthing
+      ]; 
       allowedTCPPortRanges = [];
-      allowedUDPPorts = [];
+      allowedUDPPorts = [ 
+        21025 21026 # syncthing
+      ];
       allowedUDPPortRanges = [];
       connectionTrackingModules = [];
       # extraCommands = '' cmd here '';
