@@ -18,8 +18,8 @@
   boot.blacklistedKernelModules = [ "nouveau" ];
   boot.extraModulePackages = [ ];
 
-  boot.kernelPackages = pkgs.linuxPackages // {
-    virtualbox = pkgs.linuxPackages.virtualbox.override {
+  boot.kernelPackages = pkgs.linuxPackages_4_1 // {
+    virtualbox = pkgs.linuxPackages_4_1.virtualbox.override {
       # enableExtensionPack = true;
       pulseSupport = true;
     };
