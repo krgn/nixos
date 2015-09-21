@@ -9,7 +9,7 @@
     ];
 
   boot.initrd.luks.devices = [
-    { name = "lorax"; device = "/dev/sda2"; preLVM = true; } 
+    { name = "lorax"; device = "/dev/sda2"; preLVM = true; }
     { name = "vm"; device = "/dev/sdb1"; }
   ];
 
@@ -17,6 +17,13 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.blacklistedKernelModules = [ "nouveau" ];
   boot.extraModulePackages = [ ];
+
+  boot.kernelPackages = pkgs.linuxPackages_3_14 // {
+    virtualbox = pkgs.linuxPackages_3_14.virtualbox.override {
+      # enableExtensionPack = true;
+      pulseSupport = true;
+    };
+  };
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/c4a9a51b-6e0d-45d0-aefb-31e43611c929";
@@ -43,7 +50,7 @@
     ];
 
   networking.hostName = "lorax";
-  
+
   services.xserver.xkbOptions = "compose:ralt";
   services.xserver.videoDrivers = [ "nvidiaLegacy304" ];
 

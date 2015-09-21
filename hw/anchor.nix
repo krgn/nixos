@@ -12,10 +12,18 @@
     { name = "pong"; device = "/dev/sda3"; preLVM = true; }
     { name = "home"; device = "/dev/sdb1"; }
   ];
+
   boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "usbhid" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.blacklistedKernelModules = [ "nouveau" ];
   boot.extraModulePackages = [ ];
+
+  boot.kernelPackages = pkgs.linuxPackages // {
+    virtualbox = pkgs.linuxPackages.virtualbox.override {
+      # enableExtensionPack = true;
+      pulseSupport = true;
+    };
+  };
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/9a12125b-48d7-4da1-83f3-af85fcf0382a";

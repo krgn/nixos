@@ -10,9 +10,8 @@
       ./sw/media.nix
     ];
 
-  virtualisation.docker.enable = true;
-  virtualisation.docker.storageDriver = "overlay";
-
+  # virtualisation.docker.enable = true;
+  # virtualisation.docker.storageDriver = "overlay";
   # virtualisation.virtualbox.guest.enable = true; # only need this *inside* a VM
   virtualisation.virtualbox.host.enable = true;
 
@@ -39,11 +38,11 @@
     firewall = {
       allowPing = false;
       allowedTCPPorts = [ # incoming connections allowed
-	22 
-	22000 # sycthing
-      ]; 
+        22
+        22000 # sycthing
+      ];
       allowedTCPPortRanges = [];
-      allowedUDPPorts = [ 
+      allowedUDPPorts = [
         21025 21026 # syncthing
       ];
       allowedUDPPortRanges = [];
@@ -118,9 +117,6 @@
   hardware = {
     cpu.intel.updateMicrocode = true;
 
-    opengl.driSupport = true;
-    opengl.driSupport32Bit = true;
-
     pulseaudio = {
       enable = true;
       package = pkgs.pulseaudioFull;
@@ -145,13 +141,6 @@
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "15.09";
 
-  boot.kernelPackages = pkgs.linuxPackages // {
-    virtualbox = pkgs.linuxPackages.virtualbox.override {
-      # enableExtensionPack = true;
-      pulseSupport = true;
-    };
-  };
-
   nixpkgs.config = {
     allowUnfree = true;
     firefox.enableAdobeFlash = true;
@@ -169,7 +158,7 @@
       supercollider = pkgs.supercollider.override {
         useSCEL = true;
       };
-      
+
     };
   };
 

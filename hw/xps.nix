@@ -16,6 +16,13 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  boot.kernelPackages = pkgs.linuxPackages // {
+    virtualbox = pkgs.linuxPackages.virtualbox.override {
+      # enableExtensionPack = true;
+      pulseSupport = true;
+    };
+  };
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/cf18c7cd-d6aa-4b5c-8a31-f48c7d83a2fb";
       fsType = "ext4";
@@ -36,6 +43,9 @@
     ];
 
   networking.hostName = "peng";
+
+  hardware.opengl.driSupport = true;
+  hardware.opengl.driSupport32Bit = true;
 
   services.xserver.xkbOptions = "compose:ralt,ctrl:swapcaps";
 
