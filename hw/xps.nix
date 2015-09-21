@@ -44,9 +44,6 @@
 
   networking.hostName = "peng";
 
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
-
   services.xserver.xkbOptions = "compose:ralt,ctrl:swapcaps";
 
   nix.maxJobs = 4;

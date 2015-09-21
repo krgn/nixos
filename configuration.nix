@@ -117,6 +117,9 @@
   hardware = {
     cpu.intel.updateMicrocode = true;
 
+    opengl.driSupport = true;
+    opengl.driSupport32Bit = true;
+
     pulseaudio = {
       enable = true;
       package = pkgs.pulseaudioFull;
