@@ -7,7 +7,7 @@
     cowsay
     evince
     figlet 
-    firefox
+    firefox-wrapper
     geeqie
     gimp 
     gnome3.adwaita-icon-theme  

@@ -8,6 +8,13 @@
     jack2Full
     ardour
 
+    ffmpeg
+    gst_ffmpeg
+    gst_plugins_bad
+    gst_plugins_base
+    gst_plugins_good
+    gst_plugins_ugly
+ 
     pavucontrol
     ladspaPlugins
     calf
