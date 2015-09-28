@@ -6,6 +6,7 @@
 {
   imports =
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
+      ../sw/laptop.nix
     ];
 
   boot.initrd.luks.devices = [
