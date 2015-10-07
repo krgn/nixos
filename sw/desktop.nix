@@ -30,12 +30,15 @@
     offlineimap 
     pamixer
     pinentry
+    poppler_utils
     pythonPackages.afew
+    recoll
     scrot
     shared_mime_info
     skype
     spotify
     tango-icon-theme
+    tesseract
     trayer
     unrar    
     unzip

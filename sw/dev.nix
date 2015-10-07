@@ -9,6 +9,8 @@
     atop
     autoconf
     automake
+    androidsdk_4_4
+    android-udev-rules
     clang
     cmake
     coreutils
@@ -27,6 +29,7 @@
     gdb
     gforth
     gitFull
+    gitAndTools.git-annex
     gnumake
     gparted
     htop
@@ -58,6 +61,7 @@
     telnet
     tmux
     tree
+    usbutils
     vcsh
     vim
     wget

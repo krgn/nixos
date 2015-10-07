@@ -88,6 +88,10 @@
 
     udisks2.enable = true;
 
+    udev.extraRules = ''
+      ATTRS{idVendor}=="22b8", ATTRS{idProduct}=="2e63", MODE="666", SYMLINK+="android_adb", SYMLINK+="android_fastboot"
+    '';
+
     tor = {
       enable = true;
       client = {
@@ -186,6 +190,7 @@
 
     pathsToLink = [
       "/share/SuperCollider"
+      "/share/recoll"
     ];
 
     variables = {
