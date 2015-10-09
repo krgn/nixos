@@ -41,6 +41,7 @@
     spotify
     tango-icon-theme
     tesseract
+    tetex
     trayer
     unrar    
     unzip
