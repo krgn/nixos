@@ -33,6 +33,8 @@
     poppler_utils
     pythonPackages.afew
     recoll
+    perlPackages.ImageExifTool
+    antiword
     scrot
     shared_mime_info
     skype
