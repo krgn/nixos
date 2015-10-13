@@ -63,5 +63,6 @@
     xlibs.xmessage
     xsel
     xss-lock
+    zip
   ];
 }
