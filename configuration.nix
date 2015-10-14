@@ -200,6 +200,7 @@
       GIO_EXTRA_MODULES = "${pkgs.xfce.gvfs}/lib/gio/modules";
       GTK_IM_MODULE     = "xim";
       QT_IM_MODULE      = "xim";
+      PATH              = "$HOME/.local/bin:$PATH";
     };
   };
 }
