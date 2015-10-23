@@ -41,8 +41,11 @@
     spotify
     tango-icon-theme
     tesseract
-    tetex
-    trayer
+    texLiveFull
+    texLiveExtra
+    texLiveBeamer
+    texLiveModerncv
+    texLiveModerntimeline
     unrar    
     unzip
     xarchiver
