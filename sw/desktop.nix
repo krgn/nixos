@@ -42,10 +42,10 @@
     tango-icon-theme
     tesseract
     texLiveFull
-    texLiveExtra
     texLiveBeamer
     texLiveModerncv
     texLiveModerntimeline
+    transmission_gtk
     unrar    
     unzip
     xarchiver
