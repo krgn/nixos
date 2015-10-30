@@ -201,6 +201,10 @@
       GTK_IM_MODULE     = "xim";
       QT_IM_MODULE      = "xim";
       PATH              = "$HOME/.local/bin:$PATH";
+
+      # FSharp Setup
+      FSharpTargetsPath = "${pkgs.fsharp}/lib/mono/4.5/Microsoft.FSharp.Targets";
+      TargetFSharpCorePath = "${pkgs.fsharp}/lib/mono/4.5/FSharp.Core.dll";
     };
   };
 }
