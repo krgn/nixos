@@ -35,6 +35,7 @@
     htop
     iftop
     iotop
+    imagemagickBig
     llvm
     lshw
     lsof
@@ -48,6 +49,7 @@
     nmap
     nodePackages.npm
     nodejs
+    ncftp
     pandoc
     powertop
     psmisc

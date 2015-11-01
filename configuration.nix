@@ -140,6 +140,10 @@
      "networkmanager"
      "systemd-journal"
      "vboxusers" "docker"
+     "nixbld" "lp" "kmem"
+     "tty" "floppy" "uucp"
+     "cdrom" "tape" "dialout"
+     "utmp" "adm" "input"
     ];
     createHome = true;
     home = "/home/k";
