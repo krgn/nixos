@@ -14,6 +14,7 @@
     clang
     cmake
     coreutils
+    connect
     ctags
     curl
     darcs

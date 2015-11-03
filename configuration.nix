@@ -94,6 +94,12 @@
 
     tor = {
       enable = true;
+
+      extraConfig = ''
+        HiddenServiceDir /var/lib/tor/services/ssh # needs to have 700perms
+        HiddenServicePort 22 127.0.0.1:22
+      '';
+
       client = {
         enable = true;
         socksListenAddress = "127.0.0.1:9050";
