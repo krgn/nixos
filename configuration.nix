@@ -135,15 +135,15 @@
     uid = 1000;
     group = "users";
     extraGroups = [
+     "lp" "kmem"
      "wheel" "disk"
      "audio" "video"
      "networkmanager"
      "systemd-journal"
      "vboxusers" "docker"
-     "nixbld" "lp" "kmem"
+     "utmp" "adm" "input"
      "tty" "floppy" "uucp"
      "cdrom" "tape" "dialout"
-     "utmp" "adm" "input"
     ];
     createHome = true;
     home = "/home/k";
