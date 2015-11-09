@@ -34,6 +34,7 @@
     gnumake
     gparted
     htop
+    hub
     iftop
     iotop
     imagemagickBig
@@ -46,7 +47,9 @@
     monodevelop
     mosh
     mr
+    nox
     nix-prefetch-scripts
+    nix-repl
     nmap
     nodePackages.npm
     nodejs
