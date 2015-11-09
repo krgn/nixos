@@ -34,6 +34,7 @@
     pythonPackages.afew
     recoll
     perlPackages.ImageExifTool
+    perlPackages.FileMimeInfo
     antiword
     scrot
     shared_mime_info
