@@ -31,10 +31,10 @@
     gforth
     gitFull
     gitAndTools.git-annex
+    gitAndTools.hub
     gnumake
     gparted
     htop
-    hub
     iftop
     iotop
     imagemagickBig
