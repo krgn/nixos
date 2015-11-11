@@ -2,6 +2,7 @@
 
 let
   cfg = config.services.paperscraper;
+  krgn = import <krgn>;
 in
 
 with lib;
@@ -31,9 +32,9 @@ with lib;
     jobs.paperscraper = {
       description = "Start the paperscraper service.";
       startOn = "started network-interfaces";
-      exec = ''/var/setuid-wrappers/sudo -u ${cfg.user} -- ${pkgs.paperscraper}/bin/PaperScraper'';
+      exec = ''/var/setuid-wrappers/sudo -u ${cfg.user} -- ${krgn.PaperScraper}/bin/PaperScraper'';
     };
 
-    environment.systemPackages = [ pkgs.paperscraper ];
+    environment.systemPackages = [ krgn.PaperScraper pkgs.recoll ];
   };
 }
