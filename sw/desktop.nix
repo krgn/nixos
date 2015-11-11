@@ -3,6 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     arandr
+    bup
     chromium
     cowsay
     evince
