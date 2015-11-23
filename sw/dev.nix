@@ -26,6 +26,7 @@
     file
     fish
     fsharp
+    ffmpeg
     gcc
     gdb
     gforth
@@ -51,9 +52,9 @@
     nix-prefetch-scripts
     nix-repl
     nmap
-    nodePackages.npm
     nodejs
     ncftp
+    obs-studio
     pandoc
     powertop
     psmisc

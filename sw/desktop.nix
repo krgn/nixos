@@ -7,19 +7,19 @@
     chromium
     cowsay
     evince
-    figlet 
+    figlet
     firefox-wrapper
     geeqie
-    gimp 
-    gnome3.adwaita-icon-theme  
-    gnome3.cheese 
+    gimp
+    gnome3.adwaita-icon-theme
+    gnome3.cheese
     gnome3.gnome-video-effects
-    gnupg 
-    gtk 
+    gnupg
+    gtk
     gtypist
     gucharmap
     inkscape
-    kde4.calligra 
+    kde4.calligra
     keepassx2
     keychain
     libnotify
@@ -27,8 +27,8 @@
     msmtp
     multimarkdown
     networkmanagerapplet
-    notmuch 
-    offlineimap 
+    notmuch
+    offlineimap
     pamixer
     pinentry
     poppler_utils
@@ -44,20 +44,17 @@
     tango-icon-theme
     tesseract
     texLiveFull
-    texLiveBeamer
-    texLiveModerncv
-    texLiveModerntimeline
     transmission_gtk
-    unrar    
+    unrar
     unzip
     xarchiver
     xclip
     xdg_utils
     xfce.gtk_xfce_engine
-    xfce.gvfs 
+    xfce.gvfs
     xfce.ristretto
-    xfce.thunar 
-    xfce.thunar_volman 
+    xfce.thunar
+    xfce.thunar_volman
     xfce.tumbler
     xfce.xfce4icontheme
     xfce.xfconf
