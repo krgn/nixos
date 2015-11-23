@@ -43,7 +43,7 @@
     spotify
     tango-icon-theme
     tesseract
-    texLiveFull
+    texlive.combined.scheme-basic
     transmission_gtk
     unrar
     unzip
