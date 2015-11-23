@@ -11,6 +11,7 @@
     automake
     androidsdk_4_4
     android-udev-rules
+    bind
     clang
     cmake
     coreutils
