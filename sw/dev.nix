@@ -22,6 +22,7 @@
     docker
     docker
     emacs
+    emacs24Packages.cask
     ettercap
     file
     fish
