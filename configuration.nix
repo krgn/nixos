@@ -8,7 +8,6 @@
       ./sw/dev.nix
       ./sw/desktop.nix
       ./sw/media.nix
-      ./services/paperscraper.nix
     ];
 
   # virtualisation.docker.enable = true;
@@ -80,11 +79,6 @@
   services = {
     printing.enable = true;
     avahi.enable = true;
-
-    paperscraper = {
-      enable = true;
-      user = "k";
-    };
 
     locate = {
       enable = true;
