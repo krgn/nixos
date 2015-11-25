@@ -16,7 +16,7 @@
   #define DEFAULT_COMMAND        "/run/current-system/sw/bin/fish"
   #define DEFAULT_DIRECTORY      g_get_current_dir()
   #define EXPORT_WINDOWID        TRUE
-  #define FONT                   "Ubuntu Mono 9"
+  #define FONT                   "DejaVu Sans Mono 9"
   #define FONT_ANTI_ALIAS        TRUE
   #define FONT_ENABLE_BOLD_TEXT  TRUE
   #define PROGRAM_WM_CLASS       TRUE
