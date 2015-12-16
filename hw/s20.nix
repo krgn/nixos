@@ -9,7 +9,7 @@
     ];
 
   boot.initrd.luks.devices = [
-    { name = "lorax"; device = "/dev/sda2"; preLVM = true; }
+    { name = "lorax"; device = "/dev/sda2"; preLVM = true; allowDiscards = true; }
     { name = "vm"; device = "/dev/sdb1"; }
   ];
 
@@ -28,6 +28,7 @@
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/c4a9a51b-6e0d-45d0-aefb-31e43611c929";
       fsType = "ext4";
+      options = "noatime,nodiratime,discard";
     };
 
   fileSystems."/boot" =
@@ -38,6 +39,7 @@
   fileSystems."/home" =
     { device = "/dev/disk/by-uuid/3f02a4b1-99f0-46bd-8079-a30ca14fef93";
       fsType = "ext4";
+      options = "noatime,nodiratime,discard";
     };
 
   fileSystems."/home/k/vm" =

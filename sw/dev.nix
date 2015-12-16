@@ -9,7 +9,6 @@
     atop
     autoconf
     automake
-    androidsdk_4_4
     android-udev-rules
     bind
     clang
@@ -51,6 +50,7 @@
     mosh
     mr
     nox
+    ngrep
     nix-prefetch-scripts
     nix-repl
     nmap

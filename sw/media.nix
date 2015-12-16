@@ -20,7 +20,7 @@
     calf
     puredata
 
-    handbrake
+    # handbrake
     supercollider
 
     libdvdcss

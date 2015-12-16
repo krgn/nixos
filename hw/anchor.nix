@@ -10,8 +10,8 @@
     ];
 
   boot.initrd.luks.devices = [
-    { name = "pong"; device = "/dev/sda3"; preLVM = true; }
-    { name = "home"; device = "/dev/sdb1"; }
+    { name = "pong"; device = "/dev/sda3"; preLVM = true; allowDiscards = true; }
+    { name = "home"; device = "/dev/sdb1"; allowDiscards = true; }
   ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "usbhid" ];
@@ -29,6 +29,7 @@
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/9a12125b-48d7-4da1-83f3-af85fcf0382a";
       fsType = "ext4";
+      options = "noatime,nodiratime,discard";
     };
 
   fileSystems."/boot" =
@@ -39,6 +40,7 @@
   fileSystems."/home" =
     { device = "/dev/disk/by-uuid/3b91eb8e-7982-40f1-aefa-8e987c582202";
       fsType = "ext4";
+      options = "noatime,nodiratime,discard";
     };
 
   swapDevices =

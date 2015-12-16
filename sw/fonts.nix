@@ -14,10 +14,10 @@
       ttf_bitstream_vera
       freefont_ttf
       liberation_ttf
-      # symbola # upstream download unavailable
+      symbola # upstream download unavailable
       arkpandora_ttf
       baekmuk-ttf
-      bakoma_ttf
+      # bakoma_ttf
       opensans-ttf
       font-awesome-ttf
     ];

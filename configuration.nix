@@ -36,9 +36,11 @@
       "84.200.70.40"
     ];
     firewall = {
+      enable = true;
       allowPing = false;
       allowedTCPPorts = [ # incoming connections allowed
         22
+        9418
         22000 # sycthing
       ];
       allowedTCPPortRanges = [];
@@ -160,8 +162,6 @@
 
   nixpkgs.config = {
     allowUnfree = true;
-    firefox.enableAdobeFlash = true;
-    firefox.enableGoogleTalkPlugin = true;
     chromium = {
       proprietaryCodecs = true;
       enablePepperFlash = true;
@@ -201,6 +201,7 @@
     pathsToLink = [
       "/share/SuperCollider"
       "/share/recoll"
+      "/include"
     ];
 
     variables = {
