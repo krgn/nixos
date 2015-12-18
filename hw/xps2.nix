@@ -13,7 +13,9 @@
     { name = "root"; device = "/dev/nvme0n1p3"; preLVM = true; allowDiscards = true; }
   ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "ahci" "i915" ];
+  boot.initrd.availableKernelModules = [
+    "xhci_pci" "nvme" "usb_storage" "ahci" "i915"
+  ];
 
   boot.kernelPackages = pkgs.linuxPackages_4_3;
   boot.extraModulePackages = [
