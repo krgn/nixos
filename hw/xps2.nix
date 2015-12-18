@@ -16,9 +16,11 @@
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "ahci" "i915" ];
 
   boot.kernelPackages = pkgs.linuxPackages_4_3;
-  boot.extraModulePackages = [];
+  boot.extraModulePackages = [
+    config.boot.kernelPackages.broadcom_sta
+  ];
 
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-intel" "brcmfmac" ];
   boot.blacklistedKernelModules = [
     "ssb" "bcma" "b43" "brcmsmac" "snd_pcsp" "pcspkr"
   ];
