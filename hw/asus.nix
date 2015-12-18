@@ -15,7 +15,8 @@
   ];
   boot.kernelModules = [ "kvm-intel" "aes" "sha1" "sha256" "xts" ];
   boot.extraModulePackages = [ ];
-  boot.blacklistedKernelModules = [ "nouveau" ];
+  boot.blacklistedKernelModules = [ "nouveau" "snd_pcsp" "pcspkr" ];
+  boot.loader.grub.device = "/dev/sda";
 
   fileSystems."/" =
     { device = "/dev/mapper/poodle-root";

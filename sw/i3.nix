@@ -89,6 +89,7 @@
       auto.enable = true;
       auto.user = "k";
       sessionCommands = with pkgs; ''
+        xrdb -merge /etc/X11/Xresources
         ${i3}/bin/i3
       '';
       desktopManagerHandlesLidAndPower = false;

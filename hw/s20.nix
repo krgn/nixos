@@ -13,9 +13,10 @@
     { name = "vm"; device = "/dev/sdb1"; }
   ];
 
+  boot.loader.grub.device = "/dev/sda";
   boot.initrd.availableKernelModules = [ "uhci_hcd" "ehci_pci" "ahci" "usb_storage" "usbhid" ];
   boot.kernelModules = [ "kvm-intel" ];
-  boot.blacklistedKernelModules = [ "nouveau" ];
+  boot.blacklistedKernelModules = [ "nouveau" "snd_pcsp" "pcspkr" ];
   boot.extraModulePackages = [ ];
 
   boot.kernelPackages = pkgs.linuxPackages_3_14 // {

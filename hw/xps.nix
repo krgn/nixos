@@ -9,10 +9,12 @@
     ../sw/laptop.nix
   ];
 
+  boot.loader.grub.device = "/dev/sda";
   boot.initrd.luks.devices = [
     { name = "peng"; device = "/dev/sda3"; preLVM = true; allowDiscards = true; }
   ];
   boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" ];
+  boot.blacklistedKernelModules = [ "nouveau" "snd_pcsp" "pcspkr" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 

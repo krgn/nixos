@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
-{ imports =
+let myStuff = import ./derivations;
+
+in {
+
+  imports =
     [ ./hw.nix
       ./sw/i3.nix
       ./sw/fonts.nix
@@ -19,10 +23,8 @@
     loader = {
       grub.enable = true;
       grub.version = 2;
-      grub.device = "/dev/sda";
     };
     cleanTmpDir = true;
-    blacklistedKernelModules = [ "snd_pcsp" "pcspkr" ];
     kernel.sysctl = {
       "fs.inotify.max_user_watches" = "1048576";
     };
@@ -55,7 +57,8 @@
   };
 
   i18n = {
-    consoleFont = "Lat2-Terminus16";
+    # consoleFont = "Lat2-Terminus16";
+    consoleFont = "${pkgs.terminus_font}/share/consolefonts/ter-v32n.psf.gz";
     consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
   };
@@ -131,6 +134,10 @@
 
     opengl.driSupport = true;
     opengl.driSupport32Bit = true;
+    firmware = [
+      pkgs.firmwareLinuxNonfree
+      myStuff.brcmFirmware
+    ];
 
     pulseaudio = {
       enable = true;
@@ -171,11 +178,19 @@
     };
     # virtualbox.enableExtensionPack = true;
 
-    packageOverrides = pkgs: rec {
-      supercollider = pkgs.supercollider.override {
+    packageOverrides = super: let self = super.pkgs; in rec {
+      supercollider = super.supercollider.override {
         useSCEL = true;
       };
 
+      linux_4_3 = super.linux_4_3.override {
+        kernelPatches = super.linux_4_3.kernelPatches ++ [
+          # we'll add the Ubuntu Fan Networking patches from Nixpkgs
+          # self.kernelPatches.ubuntu_fan
+          # and we'll also add one of our own patches
+          { patch = ./patches/0001-brcmfmac-Add-support-for-the-BCM4350-PCIE-device.patch; name = "4350-support"; }
+        ];
+      };
     };
   };
 
@@ -198,6 +213,18 @@
   environment = {
     etc."hosts".mode = "0644";
 
+    etc."X11/Xresources".text = ''
+      Xcursor.theme: adwaita
+
+      Xft.dpi: 192
+      Xft.autohint: 0
+      Xft.lcdfilter:  lcddefault
+      Xft.hintstyle:  hintfull
+      Xft.hinting: 1
+      Xft.antialias: 1
+      Xft.rgba: rgb
+    '';
+
     pathsToLink = [
       "/share/SuperCollider"
       "/share/recoll"
@@ -213,9 +240,11 @@
       QT_IM_MODULE      = "xim";
       PATH              = "$HOME/.local/bin:$PATH";
 
-      # FSharp Setup
+      QT_DEVICE_PIXEL_RATIO = "2";
+      GDK_SCALE = "2";
+      GDK_DPI_SCALE = "0.5";
+
       FSharpTargetsPath = "${pkgs.fsharp}/lib/mono/4.5/Microsoft.FSharp.Targets";
-      TargetFSharpCorePath = "${pkgs.fsharp}/lib/mono/4.5/FSharp.Core.dll";
     };
   };
 }
