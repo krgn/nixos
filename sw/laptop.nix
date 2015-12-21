@@ -11,7 +11,7 @@
     twoFingerScroll = true;
     accelFactor = "1";
     buttonsMap = [ 1 3 2 ];
-    palmDetect = true; 
+    palmDetect = true;
     additionalOptions = ''
       Option "VertScrollDelta" "-18"
       Option "HorizScrollDelta" "18"

@@ -76,6 +76,6 @@
     wget
     which
     wireshark
-    exfat
+    exfat-utils
   ];
 }

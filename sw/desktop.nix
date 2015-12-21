@@ -25,7 +25,7 @@
     libnotify
     libreoffice
     msmtp
-    multimarkdown
+    # multimarkdown
     networkmanagerapplet
     notmuch
     offlineimap

@@ -90,6 +90,7 @@
       auto.user = "k";
       sessionCommands = with pkgs; ''
         xrdb -merge /etc/X11/Xresources
+        xrdb -merge ~/.Xresources
         ${i3}/bin/i3
       '';
       desktopManagerHandlesLidAndPower = false;
