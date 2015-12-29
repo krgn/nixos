@@ -183,6 +183,12 @@ in {
         useSCEL = true;
       };
 
+      i3status = pkgs.stdenv.lib.overrideDerivation super.i3status (oldAttrs: {
+        patches = [
+          ./patches/0001-add-support-for-reading-files.patch
+        ];
+      });
+
       linux_4_3 = super.linux_4_3.override {
         kernelPatches = super.linux_4_3.kernelPatches ++ [
           # we'll add the Ubuntu Fan Networking patches from Nixpkgs
