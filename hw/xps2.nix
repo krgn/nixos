@@ -60,5 +60,23 @@
     '';
   };
 
+  environment = {
+    etc."X11/Xresources".text = ''
+      Xcursor.theme: Adwaita
+
+      Xft.dpi: 192
+      Xft.autohint: 0
+      Xft.lcdfilter:  lcddefault
+      Xft.hintstyle:  hintfull
+      Xft.hinting: 1
+      Xft.antialias: 1
+      Xft.rgba: rgb
+    '';
+
+    variables.QT_DEVICE_PIXEL_RATIO = "2";
+    variables.GDK_SCALE = "2";
+    variables.GDK_DPI_SCALE = "0.5";
+  };
+
   nix.maxJobs = 4;
 }

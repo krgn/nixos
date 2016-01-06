@@ -41,14 +41,11 @@ in {
       enable = true;
       allowPing = false;
       allowedTCPPorts = [ # incoming connections allowed
-        22
-        9418
-        22000 # sycthing
+        22   # ssh
+        9418 # tor
       ];
       allowedTCPPortRanges = [];
-      allowedUDPPorts = [
-        21025 21026 # syncthing
-      ];
+      allowedUDPPorts = [];
       allowedUDPPortRanges = [];
       connectionTrackingModules = [];
       # extraCommands = '' cmd here '';
@@ -110,12 +107,6 @@ in {
         socksListenAddress = "127.0.0.1:9050";
         socksListenAddressFaster = "127.0.0.1:9052";
       };
-    };
-
-    syncthing = {
-      enable = true;
-      user = "k";
-      dataDir = "/home/k/.config/syncthing";
     };
 
     openssh = {
@@ -219,18 +210,6 @@ in {
   environment = {
     etc."hosts".mode = "0644";
 
-    etc."X11/Xresources".text = ''
-      Xcursor.theme: adwaita
-
-      Xft.dpi: 192
-      Xft.autohint: 0
-      Xft.lcdfilter:  lcddefault
-      Xft.hintstyle:  hintfull
-      Xft.hinting: 1
-      Xft.antialias: 1
-      Xft.rgba: rgb
-    '';
-
     pathsToLink = [
       "/share/SuperCollider"
       "/share/recoll"
@@ -245,10 +224,6 @@ in {
       GTK_IM_MODULE     = "xim";
       QT_IM_MODULE      = "xim";
       PATH              = "$HOME/.local/bin:$PATH";
-
-      QT_DEVICE_PIXEL_RATIO = "2";
-      GDK_SCALE = "2";
-      GDK_DPI_SCALE = "0.5";
 
       FSharpTargetsPath = "${pkgs.fsharp}/lib/mono/4.5/Microsoft.FSharp.Targets";
     };

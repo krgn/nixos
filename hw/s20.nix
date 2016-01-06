@@ -57,5 +57,19 @@
   services.xserver.xkbOptions = "compose:ralt";
   services.xserver.videoDrivers = [ "nvidiaLegacy304" ];
 
+  environment = {
+    etc."X11/Xresources".text = ''
+      Xcursor.theme: Adwaita
+
+      Xft.dpi: 96
+      Xft.autohint: 0
+      Xft.lcdfilter:  lcddefault
+      Xft.hintstyle:  hintfull
+      Xft.hinting: 1
+      Xft.antialias: 1
+      Xft.rgba: rgb
+    '';
+  };
+
   nix.maxJobs = 8;
 }
