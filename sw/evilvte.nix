@@ -2,7 +2,7 @@
 
 {
   nixpkgs.config.evilvte.config = ''
-  #define BACKSPACE_KEY     BACKSPACE
+  #define BACKSPACE_KEY     AUTO
   #define DELETE_KEY        DELETE
   #define BELL_AUDIBLE      TRUE
   #define BELL_VISIBLE      TRUE
