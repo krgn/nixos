@@ -25,6 +25,11 @@
     };
   };
 
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = "ondemand";
+  };
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/cf18c7cd-d6aa-4b5c-8a31-f48c7d83a2fb";
       fsType = "ext4";

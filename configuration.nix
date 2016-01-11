@@ -60,11 +60,6 @@ in {
     defaultLocale = "en_US.UTF-8";
   };
 
-  powerManagement = {
-    enable = true;
-    cpuFreqGovernor = "ondemand";
-  };
-
   security = {
     sudo = {
       enable = true;
@@ -213,6 +208,7 @@ in {
     pathsToLink = [
       "/share/SuperCollider"
       "/share/recoll"
+      "/share/mr"
       "/include"
     ];
 

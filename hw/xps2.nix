@@ -60,6 +60,11 @@
     '';
   };
 
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = "powersave";
+  };
+
   environment = {
     etc."X11/Xresources".text = ''
       Xcursor.theme: Adwaita
