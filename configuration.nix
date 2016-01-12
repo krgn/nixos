@@ -12,6 +12,8 @@ in {
       ./sw/dev.nix
       ./sw/desktop.nix
       ./sw/media.nix
+      ./services/emacs.nix
+      ./services/offlineimap.nix
     ];
 
   # virtualisation.docker.enable = true;
@@ -207,6 +209,7 @@ in {
 
     pathsToLink = [
       "/share/SuperCollider"
+      "/share/terminfo"
       "/share/recoll"
       "/share/mr"
       "/include"
